@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -19,6 +20,10 @@ public class PlayerController : MonoBehaviour
     [Header("Jump Settings")]
     [SerializeField] private float jumpBufferTime = 0.2f;
     
+    [Header("Death Settings")]
+    [SerializeField] private string waterTag = "Water";
+    [SerializeField] private float restartDelay = 1f;
+    
     private Rigidbody2D rb;
     private Keyboard keyboard;
     
@@ -29,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private bool jumpPressed;
     private bool jumpReleased;
     private bool hasJumped;
+    private bool isDead;
     
     private void Awake()
     {
@@ -80,6 +86,9 @@ public class PlayerController : MonoBehaviour
     
     private void Update()
     {
+        // Don't process input if dead
+        if (isDead) return;
+        
         // Get keyboard input
         keyboard = Keyboard.current;
         if (keyboard == null) return;
@@ -109,6 +118,9 @@ public class PlayerController : MonoBehaviour
     
     private void FixedUpdate()
     {
+        // Don't process movement if dead
+        if (isDead) return;
+        
         HandleMovement();
         HandleJump();
     }
@@ -232,6 +244,48 @@ public class PlayerController : MonoBehaviour
         {
             jumpReleased = false;
         }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Check if collided with water
+        if (!isDead && collision.CompareTag(waterTag))
+        {
+            Die();
+        }
+    }
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Check if collided with water (in case water uses collision instead of trigger)
+        if (!isDead && collision.gameObject.CompareTag(waterTag))
+        {
+            Die();
+        }
+    }
+    
+    private void Die()
+    {
+        if (isDead) return; // Prevent multiple death calls
+        
+        isDead = true;
+        
+        // Stop player movement
+        rb.linearVelocity = Vector2.zero;
+        rb.isKinematic = true; // Prevent physics interactions
+        
+        // Disable player input
+        horizontalInput = 0f;
+        jumpPressed = false;
+        
+        // Restart the game after delay
+        Invoke(nameof(RestartGame), restartDelay);
+    }
+    
+    private void RestartGame()
+    {
+        // Reload the current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
     private void OnDrawGizmosSelected()
