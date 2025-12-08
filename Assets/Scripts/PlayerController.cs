@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private bool jumpReleased;
     private bool hasJumped;
     private bool isDead;
+    [SerializeField] private bool canMove = true; // Control for WASD movement input
     
     private void Awake()
     {
@@ -93,14 +94,17 @@ public class PlayerController : MonoBehaviour
         keyboard = Keyboard.current;
         if (keyboard == null) return;
         
-        // Read movement input
+        // Read movement input (only if canMove is true)
         horizontalInput = 0f;
-        if (keyboard.aKey.isPressed || keyboard.leftArrowKey.isPressed)
-            horizontalInput = -1f;
-        if (keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed)
-            horizontalInput = 1f;
+        if (canMove)
+        {
+            if (keyboard.aKey.isPressed || keyboard.leftArrowKey.isPressed)
+                horizontalInput = -1f;
+            if (keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed)
+                horizontalInput = 1f;
+        }
         
-        // Read jump input
+        // Read jump input (always enabled)
         if (keyboard.spaceKey.wasPressedThisFrame)
         {
             jumpPressed = true;
@@ -286,6 +290,31 @@ public class PlayerController : MonoBehaviour
     {
         // Reload the current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    
+    // Public method to enable/disable movement (jumping remains enabled)
+    public void SetMovementEnabled(bool enabled)
+    {
+        canMove = enabled;
+        if (!enabled)
+        {
+            // Clear horizontal input when movement is disabled
+            horizontalInput = 0f;
+        }
+    }
+    
+    // Public property to get/set canMove directly
+    public bool CanMove
+    {
+        get { return canMove; }
+        set 
+        { 
+            canMove = value;
+            if (!canMove)
+            {
+                horizontalInput = 0f;
+            }
+        }
     }
     
     private void OnDrawGizmosSelected()
