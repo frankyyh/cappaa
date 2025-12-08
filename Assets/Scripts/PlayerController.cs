@@ -264,7 +264,7 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    private void Die()
+    public void Die()
     {
         if (isDead) return; // Prevent multiple death calls
         
