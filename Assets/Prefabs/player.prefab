@@ -134,10 +134,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0aefdf954c66944ba0d38ba4f9a7ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  moveSpeed: 5
+  moveSpeed: 3
   acceleration: 100
   deceleration: 100
-  jumpForce: 10
+  jumpForce: 12
   groundCheckPoint: {fileID: 1814618614119427587}
   groundCheckRadius: 0.1
   groundLayerMask:
