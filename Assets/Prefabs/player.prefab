@@ -137,7 +137,7 @@ MonoBehaviour:
   moveSpeed: 3
   acceleration: 100
   deceleration: 100
-  jumpForce: 12
+  jumpForce: 13
   groundCheckPoint: {fileID: 1814618614119427587}
   groundCheckRadius: 0.1
   groundLayerMask:
