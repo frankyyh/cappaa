@@ -321,7 +321,11 @@ public class PlayerController : MonoBehaviour
             // Apply jump force - using velocity for immediate response
             rb.linearVelocity = new Vector2(currentVelocity.x, jumpForce);
             // Play Jump sound effect
-            SFXManager.Instance.PlayJump();
+            if (SFXManager.Instance != null)
+            {
+                SFXManager.Instance.PlayJump();
+
+            }
             Debug.Log($"Applied jump force. New velocity: {rb.linearVelocity}");
             
             hasJumped = true;
