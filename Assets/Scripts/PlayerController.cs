@@ -179,7 +179,11 @@ public class PlayerController : MonoBehaviour
                 if (hasScareTrigger)
                 {
                     animator.SetTrigger("Scare");
-                    SFXManager.Instance.PlayScare();
+                    if (SFXManager.Instance != null)
+                    {
+                        SFXManager.Instance.PlayScare();
+
+                    }
                     Debug.Log("Scare animation triggered!");
                 }
                 else
