@@ -201,6 +201,7 @@ public class Cappa : MonoBehaviour
                 {
                     rb.linearVelocity = Vector2.zero;
                 }
+                FindAnyObjectByType<BGMover>().canMoveBeginning = true;
                 Debug.Log("Cappa reached horizontal end position");
             }
             else

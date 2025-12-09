@@ -13,6 +13,7 @@ public class BGMover : MonoBehaviour
     [SerializeField] GameObject _endingSectionHolder;
     [SerializeField] Vector3 _endSectionStart;
     [SerializeField] Vector3 _endSectionEnd;
+    public bool canMoveBeginning = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
