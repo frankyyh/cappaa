@@ -1,37 +1,43 @@
 fileFormatVersion: 2
-guid: f74e39c22ff5f79409884b9c40e49b81
+guid: 8b3655574bdf97140942521d6931597e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2658487640390977340
-    second: BG_0000_Small_land_0
+      213: -4573727909565358220
+    second: scare_0
   - first:
-      213: -3606851746659468987
-    second: BG_0000_Small_land_1
+      213: 7864955110292667854
+    second: scare_1
   - first:
-      213: 99688233366717568
-    second: BG_0000_Small_land_2
+      213: -1080686381201497173
+    second: scare_2
   - first:
-      213: 8991972842079501262
-    second: BG_0000_Small_land_3
+      213: -6051561494584113190
+    second: scare_3
   - first:
-      213: 6243636987248833286
-    second: BG_0000_Small_land_4
+      213: 2092200928250428441
+    second: scare_4
   - first:
-      213: 1234607264586102004
-    second: BG_0000_Small_land_5
+      213: -1186078306295971912
+    second: scare_5
   - first:
-      213: 8144773886006145480
-    second: BG_0000_Small_land_6
+      213: 8782948496798718706
+    second: scare_6
   - first:
-      213: 2815505172123670851
-    second: BG_0000_Small_land_7
+      213: -1436543798080562936
+    second: scare_7
   - first:
-      213: 5222590026015666558
-    second: BG_0000_Small_land_8
+      213: 8784943941545771342
+    second: scare_8
   - first:
-      213: 6144823554754851169
-    second: BG_0000_Small_land_9
+      213: 7306892085489204539
+    second: scare_9
+  - first:
+      213: -1088904268808112411
+    second: scare_10
+  - first:
+      213: -8361037862299682861
+    second: scare_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -64,7 +70,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -78,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -127,221 +133,265 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BG_0000_Small_land_0
+      name: scare_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 890
-        height: 206
+        x: 42
+        y: 1483
+        width: 419
+        height: 509
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4c8baba83972b1bd0800000000000000
-      internalID: -2658487640390977340
+      spriteID: 47f111be2bad680c0800000000000000
+      internalID: -4573727909565358220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BG_0000_Small_land_1
+      name: scare_1
       rect:
         serializedVersion: 2
-        x: 189
-        y: 40
-        width: 17
-        height: 35
+        x: 511
+        y: 1482
+        width: 563
+        height: 408
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5497dd24273e1fdc0800000000000000
-      internalID: -3606851746659468987
+      spriteID: ecd3363a00fe52d60800000000000000
+      internalID: 7864955110292667854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BG_0000_Small_land_2
+      name: scare_2
       rect:
         serializedVersion: 2
-        x: 224
-        y: 53
-        width: 17
-        height: 38
+        x: 1131
+        y: 1482
+        width: 586
+        height: 561
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0840c1a8be9226100800000000000000
-      internalID: 99688233366717568
+      spriteID: ba3e1e64671a001f0800000000000000
+      internalID: -1080686381201497173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BG_0000_Small_land_3
+      name: scare_3
       rect:
         serializedVersion: 2
-        x: 284
-        y: 0
-        width: 606
-        height: 124
+        x: 1757
+        y: 1482
+        width: 624
+        height: 597
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ecbbb1a88a7e9cc70800000000000000
-      internalID: 8991972842079501262
+      spriteID: ad7c1ea12e8840ca0800000000000000
+      internalID: -6051561494584113190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BG_0000_Small_land_4
+      name: scare_4
       rect:
         serializedVersion: 2
-        x: 485
-        y: 50
-        width: 137
-        height: 156
+        x: 2412
+        y: 1482
+        width: 693
+        height: 647
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 603f47b72cad5a650800000000000000
-      internalID: 6243636987248833286
+      spriteID: 91cfb17c8adf80d10800000000000000
+      internalID: 2092200928250428441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BG_0000_Small_land_5
+      name: scare_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 17
-        height: 18
+        x: 146
+        y: 770
+        width: 683
+        height: 673
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4f475c214c4322110800000000000000
-      internalID: 1234607264586102004
+      spriteID: 8bf7e6580143a8fe0800000000000000
+      internalID: -1186078306295971912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BG_0000_Small_land_6
+      name: scare_6
       rect:
         serializedVersion: 2
-        x: 27
-        y: 1
-        width: 36
-        height: 33
+        x: 849
+        y: 771
+        width: 693
+        height: 648
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8c1364b42bc080170800000000000000
-      internalID: 8144773886006145480
+      spriteID: 2fa1d30bf1d43e970800000000000000
+      internalID: 8782948496798718706
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BG_0000_Small_land_7
+      name: scare_7
       rect:
         serializedVersion: 2
-        x: 31
-        y: 0
-        width: 29
-        height: 7
+        x: 1643
+        y: 771
+        width: 648
+        height: 659
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 349d4bf690fa21720800000000000000
-      internalID: 2815505172123670851
+      spriteID: 8091e1bd60f501ce0800000000000000
+      internalID: -1436543798080562936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BG_0000_Small_land_8
+      name: scare_8
       rect:
         serializedVersion: 2
-        x: 61
-        y: 0
-        width: 136
-        height: 25
+        x: 184
+        y: 31
+        width: 607
+        height: 630
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e71792c45fd5a7840800000000000000
-      internalID: 5222590026015666558
+      spriteID: e414e8f58f36ae970800000000000000
+      internalID: 8784943941545771342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BG_0000_Small_land_9
+      name: scare_9
       rect:
         serializedVersion: 2
-        x: 199
-        y: 0
-        width: 113
-        height: 52
+        x: 881
+        y: 31
+        width: 502
+        height: 599
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 161bd94677cc64550800000000000000
-      internalID: 6144823554754851169
+      spriteID: b3d72bf53ab476560800000000000000
+      internalID: 7306892085489204539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scare_10
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 31
+        width: 453
+        height: 592
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e63947365f63e0f0800000000000000
+      internalID: -1088904268808112411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scare_11
+      rect:
+        serializedVersion: 2
+        x: 2107
+        y: 31
+        width: 366
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d73908ec50a7fb80800000000000000
+      internalID: -8361037862299682861
       vertices: []
       indices: 
       edges: []
@@ -350,7 +400,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 4f29bbd55ff7f44408b4681aff069110
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -360,16 +410,18 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BG_0000_Small_land_0: -2658487640390977340
-      BG_0000_Small_land_1: -3606851746659468987
-      BG_0000_Small_land_2: 99688233366717568
-      BG_0000_Small_land_3: 8991972842079501262
-      BG_0000_Small_land_4: 6243636987248833286
-      BG_0000_Small_land_5: 1234607264586102004
-      BG_0000_Small_land_6: 8144773886006145480
-      BG_0000_Small_land_7: 2815505172123670851
-      BG_0000_Small_land_8: 5222590026015666558
-      BG_0000_Small_land_9: 6144823554754851169
+      scare_0: -4573727909565358220
+      scare_1: 7864955110292667854
+      scare_10: -1088904268808112411
+      scare_11: -8361037862299682861
+      scare_2: -1080686381201497173
+      scare_3: -6051561494584113190
+      scare_4: 2092200928250428441
+      scare_5: -1186078306295971912
+      scare_6: 8782948496798718706
+      scare_7: -1436543798080562936
+      scare_8: 8784943941545771342
+      scare_9: 7306892085489204539
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

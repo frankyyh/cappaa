@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float acceleration = 20f;
     [SerializeField] private float deceleration = 20f;
     [SerializeField] private float jumpForce = 10f;
+    [SerializeField] bool isWalking;
     
     [Header("Ground Check")]
     [SerializeField] private Transform groundCheckPoint;
@@ -23,6 +24,9 @@ public class PlayerController : MonoBehaviour
     [Header("Death Settings")]
     [SerializeField] private string waterTag = "Water";
     [SerializeField] private float restartDelay = 1f;
+    
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
     
     private Rigidbody2D rb;
     private Keyboard keyboard;
@@ -41,6 +45,26 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         
+        if (rb == null)
+        {
+            Debug.LogError("Rigidbody2D component not found!");
+            return;
+        }
+        
+        Debug.Log($"Rigidbody2D found. Body Type: {rb.bodyType}, IsKinematic: {rb.isKinematic}, Constraints: {rb.constraints}");
+        
+        // Get Animator if not assigned
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
+        
+        // Disable Apply Root Motion to prevent animator from interfering with movement
+        if (animator != null)
+        {
+            animator.applyRootMotion = false;
+        }
+        
         // Enable interpolation to prevent camera jittering
         // This smooths the movement between FixedUpdate frames
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
@@ -56,6 +80,8 @@ public class PlayerController : MonoBehaviour
             groundCheck.transform.localPosition = new Vector3(0, -0.5f, 0);
             groundCheckPoint = groundCheck.transform;
         }
+        
+        Debug.Log($"PlayerController initialized. canMove: {canMove}, isDead: {isDead}");
     }
     
     private void SetupZeroFriction()
@@ -88,12 +114,23 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         // Don't process input if dead
-        if (isDead) return;
+        if (isDead)
+        {
+            Debug.LogWarning("Player is dead! Cannot process input.");
+            return;
+        }
         
         // Get keyboard input
         keyboard = Keyboard.current;
-        if (keyboard == null) return;
-        
+        if (keyboard == null)
+        {
+            Debug.LogError("Keyboard.current is null! Make sure Input System is enabled in Project Settings > Player > Active Input Handling");
+            return;
+        }
+        if (isWalking && isGrounded)
+        {
+            SFXManager.Instance.PlayWalk();
+        }
         // Read movement input (only if canMove is true)
         horizontalInput = 0f;
         if (canMove)
@@ -103,10 +140,15 @@ public class PlayerController : MonoBehaviour
             if (keyboard.dKey.isPressed || keyboard.rightArrowKey.isPressed)
                 horizontalInput = 1f;
         }
+        else
+        {
+            Debug.LogWarning($"canMove is FALSE! Movement disabled.");
+        }
         
         // Read jump input (always enabled)
         if (keyboard.spaceKey.wasPressedThisFrame)
         {
+            Debug.Log("SPACE KEY PRESSED!");
             jumpPressed = true;
             jumpBufferCounter = jumpBufferTime;
         }
@@ -116,8 +158,44 @@ public class PlayerController : MonoBehaviour
             jumpReleased = true;
         }
         
+        // Read scare input (E key)
+        if (keyboard.eKey.wasPressedThisFrame)
+        {
+            Debug.Log("E KEY PRESSED - Scaring!");
+            // Trigger scare animation
+            if (animator != null)
+            {
+                // Check if the trigger parameter exists
+                bool hasScareTrigger = false;
+                foreach (AnimatorControllerParameter param in animator.parameters)
+                {
+                    if (param.name == "Scare" && param.type == AnimatorControllerParameterType.Trigger)
+                    {
+                        hasScareTrigger = true;
+                        break;
+                    }
+                }
+                
+                if (hasScareTrigger)
+                {
+                    animator.SetTrigger("Scare");
+                    SFXManager.Instance.PlayScare();
+                    Debug.Log("Scare animation triggered!");
+                }
+                else
+                {
+                    Debug.LogWarning("'Scare' trigger parameter not found in Animator Controller! Please add it in the Animator window.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Animator component is null! Make sure it's assigned in the PlayerController.");
+            }
+        }
+        
         CheckGrounded();
         HandleJumpBuffer();
+        UpdateAnimations();
     }
     
     private void FixedUpdate()
@@ -135,10 +213,16 @@ public class PlayerController : MonoBehaviour
         float currentVelocityX = rb.linearVelocity.x;
         float targetVelocityX = horizontalInput * moveSpeed;
         
+        if (Mathf.Abs(horizontalInput) > 0.1f)
+        {
+            Debug.Log($"Movement input detected! Input: {horizontalInput}, Target: {targetVelocityX}, Current: {currentVelocityX}");
+        }
+        
         // Apply acceleration or deceleration
         float velocityChange;
         if (Mathf.Abs(horizontalInput) > 0.1f)
         {
+            isWalking = true;
             // Accelerating towards target speed
             velocityChange = acceleration * Time.fixedDeltaTime;
             
@@ -156,7 +240,7 @@ public class PlayerController : MonoBehaviour
         {
             // Decelerating (no input)
             velocityChange = deceleration * Time.fixedDeltaTime;
-            
+            isWalking = false;
             if (currentVelocityX > 0)
             {
                 currentVelocityX = Mathf.Max(0, currentVelocityX - velocityChange);
@@ -168,7 +252,13 @@ public class PlayerController : MonoBehaviour
         }
         
         // Apply the new horizontal velocity (preserve Y velocity)
-        rb.linearVelocity = new Vector2(currentVelocityX, rb.linearVelocity.y);
+        Vector2 newVel = new Vector2(currentVelocityX, rb.linearVelocity.y);
+        rb.linearVelocity = newVel;
+        
+        if (Mathf.Abs(horizontalInput) > 0.1f)
+        {
+            Debug.Log($"Applied velocity: {newVel}, Rigidbody velocity after: {rb.linearVelocity}");
+        }
     }
     
     private void CheckGrounded()
@@ -221,6 +311,8 @@ public class PlayerController : MonoBehaviour
         
         if (canJump && jumpPressed)
         {
+            Debug.Log($"JUMPING! Grounded: {isGrounded}, HasJumped: {hasJumped}, Buffer: {jumpBufferCounter}");
+            
             // Reset Y velocity first to ensure consistent jump height
             // This prevents any downward velocity from affecting the jump
             Vector2 currentVelocity = rb.linearVelocity;
@@ -228,11 +320,24 @@ public class PlayerController : MonoBehaviour
             
             // Apply jump force - using velocity for immediate response
             rb.linearVelocity = new Vector2(currentVelocity.x, jumpForce);
+            // Play Jump sound effect
+            SFXManager.Instance.PlayJump();
+            Debug.Log($"Applied jump force. New velocity: {rb.linearVelocity}");
             
             hasJumped = true;
             jumpBufferCounter = 0;
             jumpPressed = false;
             jumpReleased = false; // Reset jump released flag when jumping
+            
+            // Trigger jump animation
+            if (animator != null)
+            {
+                animator.SetTrigger("Jump");
+            }
+        }
+        else if (jumpPressed)
+        {
+            Debug.LogWarning($"Cannot jump! Grounded: {isGrounded}, HasJumped: {hasJumped}, Buffer: {jumpBufferCounter}");
         }
         
         // Variable jump height - reduce velocity when jump button is released early
@@ -314,6 +419,30 @@ public class PlayerController : MonoBehaviour
             {
                 horizontalInput = 0f;
             }
+        }
+    }
+    
+    private void UpdateAnimations()
+    {
+        if (animator == null) return;
+        
+        // Update speed parameter for walk animation
+        float speed = Mathf.Abs(horizontalInput);
+        animator.SetFloat("Speed", speed);
+        
+        // Update grounded state
+        animator.SetBool("IsGrounded", isGrounded);
+        
+        // Handle sprite flipping based on movement direction
+        if (horizontalInput > 0.1f)
+        {
+            // Moving right - face right
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        else if (horizontalInput < -0.1f)
+        {
+            // Moving left - face left
+            transform.localScale = new Vector3(-1f, 1f, 1f);
         }
     }
     
