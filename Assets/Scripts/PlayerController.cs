@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
         
-        Debug.Log($"Rigidbody2D found. Body Type: {rb.bodyType}, IsKinematic: {rb.isKinematic}, Constraints: {rb.constraints}");
+        Debug.Log($"Rigidbody2D found. Body Type: {rb.bodyType}, Constraints: {rb.constraints}");
         
         // Get Animator if not assigned
         if (animator == null)
@@ -381,7 +381,6 @@ public class PlayerController : MonoBehaviour
         
         // Stop player movement
         rb.linearVelocity = Vector2.zero;
-        rb.isKinematic = true; // Prevent physics interactions
         
         // Disable player input
         horizontalInput = 0f;
