@@ -992,16 +992,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SFXManager
   walkClip: {fileID: 8300000, guid: 9dcc8e2cfd3cd534fa8b241561deafb6, type: 3}
   jumpClip: {fileID: 8300000, guid: 021dc912fc20bff45ba72ed039770e29, type: 3}
-  scareClip: {fileID: 0}
+  scareClip: {fileID: 8300000, guid: 055a47f4890a7484b915fb706b5437ab, type: 3}
   deathClip: {fileID: 8300000, guid: f45a996eb28353a409c574cc8f9bc0d1, type: 3}
   kapJump: {fileID: 0}
-  kapScared: {fileID: 0}
-  kapHand: {fileID: 0}
-  kapIdle: {fileID: 0}
+  kapScared: {fileID: 8300000, guid: 6a4c43f26afa2e640b293f5058245ddd, type: 3}
+  kapHand: {fileID: 8300000, guid: ea60d16794e4dd149b8b816ca36989f0, type: 3}
+  kapIdle: {fileID: 8300000, guid: 10010b3f64cff7147bbd5fa573388d6d, type: 3}
+  kapIdleAltClips: []
+  kapEnterWater: {fileID: 8300000, guid: 28dcd7316ca4a444bb072aec70ac7b69, type: 3}
   sfxSource: {fileID: 458903059}
   stepInterval: 0.25
   minWalkPitch: 0.95
   maxWalkPitch: 1.05
+  kapIdleCooldown: 3
 --- !u!4 &458903061
 Transform:
   m_ObjectHideFlags: 0
