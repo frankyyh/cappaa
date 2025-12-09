@@ -21,6 +21,7 @@ public class Cappa : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform player;
     [SerializeField] private string waterTag = "Water";
+    [SerializeField] private CappaAttacks cappaAttacks;
     
     private bool isScared = false;
     private bool hasReachedHorizontalEnd = false;
@@ -57,6 +58,12 @@ public class Cappa : MonoBehaviour
             {
                 Debug.LogWarning("Cappa: Player not found! Make sure player has 'Player' tag.");
             }
+        }
+        
+        // Find CappaAttacks if not assigned
+        if (cappaAttacks == null)
+        {
+            cappaAttacks = GetComponent<CappaAttacks>();
         }
     }
     
@@ -158,6 +165,17 @@ public class Cappa : MonoBehaviour
     
     private void HandleScaredMovement()
     {
+        // Don't move if underwater
+        if (cappaAttacks != null && cappaAttacks.IsUnderwater())
+        {
+            // Stop all movement when underwater
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector2.zero;
+            }
+            return;
+        }
+        
         if (hasReachedFinalPosition)
         {
             // Stop all movement
@@ -215,7 +233,14 @@ public class Cappa : MonoBehaviour
                 {
                     rb.linearVelocity = Vector2.zero;
                 }
-                Debug.Log("Cappa reached final water position");
+                
+                // Set underwater = true when Cappa reaches water
+                if (cappaAttacks != null)
+                {
+                    cappaAttacks.SetUnderwater(true);
+                }
+                
+                Debug.Log("Cappa reached final water position - now underwater");
             }
             else
             {
@@ -232,6 +257,24 @@ public class Cappa : MonoBehaviour
                 }
             }
         }
+    }
+    
+    // Public method to check if cappa is scared
+    public bool IsScared()
+    {
+        return isScared;
+    }
+    
+    // Public method to reset scared state
+    public void ResetScaredState()
+    {
+        isScared = false;
+    }
+    
+    // Public method to get scare range
+    public float GetScareRange()
+    {
+        return scareRange;
     }
     
     private void OnDrawGizmosSelected()
