@@ -42,6 +42,8 @@ public class Cappa : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D cappaCollider;
     private Vector2 originalPosition;
+    private Vector2 underwaterPosition; // Store the underwater position after first scare
+    private bool isFirstScare = true; // Track if this is the first time being scared
     private string currentAnimationState = ""; // Track current animation state
     private Coroutine jumpArcCoroutine; // Track the jump arc coroutine
     
@@ -108,11 +110,17 @@ public class Cappa : MonoBehaviour
             return;
         }
         
+        // Don't check attack/scare range when underwater (attacks are handled by CappaAttacks)
+        if (cappaAttacks != null && cappaAttacks.IsUnderwater())
+        {
+            return;
+        }
+        
         if (player == null) return;
         
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         
-        // Check if player is in attack range
+        // Check if player is in attack range (only when not underwater)
         if (distanceToPlayer <= attackRange)
         {
             AttackPlayer();
@@ -175,9 +183,19 @@ public class Cappa : MonoBehaviour
     {
         if (isScared) return; // Already scared
         
+        // Only handle first scare (jumping into water)
+        // Future scares are handled by CappaAttacks during jump attacks
+        bool alreadyUnderwater = cappaAttacks != null && cappaAttacks.IsUnderwater();
+        if (alreadyUnderwater)
+        {
+            // Future scares are handled by CappaAttacks, not here
+            return;
+        }
+        
         isScared = true;
         hasReachedHorizontalEnd = false;
         hasReachedFinalPosition = false;
+        isFirstScare = false;
         Debug.Log("Cappa is scared! Jumping away!");
         
         // Make cappa fall through ground (disable collider temporarily)
@@ -268,6 +286,9 @@ public class Cappa : MonoBehaviour
                     cappaAttacks.SetUnderwater(true);
                 }
                 
+                // Store underwater position for future scares (will be updated when jump completes)
+                underwaterPosition = transform.position;
+                
                 // Switch to underwater idle animation
                 SetAnimationState("UnderwaterIdle");
                 
@@ -285,6 +306,9 @@ public class Cappa : MonoBehaviour
         hasReachedFinalPosition = true;
         hasReachedHorizontalEnd = true;
         
+        // Store underwater position for future scares
+        underwaterPosition = endPos;
+        
         // Stop movement
         if (rb != null)
         {
@@ -295,6 +319,7 @@ public class Cappa : MonoBehaviour
         BGMover bgMover = FindAnyObjectByType<BGMover>();
         if (bgMover != null)
         {
+            bgMover.enabled = true;
             bgMover.canMoveBeginning = true;
         }
         
@@ -306,6 +331,12 @@ public class Cappa : MonoBehaviour
         }
         
         Debug.Log("Cappa completed parabolic jump arc - now underwater");
+    }
+    
+    // Public method to get underwater position (for CappaAttacks to use)
+    public Vector2 GetUnderwaterPosition()
+    {
+        return underwaterPosition;
     }
     
     // Public method to check if cappa is scared
@@ -326,8 +357,23 @@ public class Cappa : MonoBehaviour
         return scareRange;
     }
     
+    // Public method to get scare key (for CappaAttacks to use)
+    public Key GetScareKey()
+    {
+        return scareKey;
+    }
+    
+    // Called by CappaAttacks when player scares during jump attack
+    public void ScareCappaDuringJumpAttack()
+    {
+        if (isScared) return; // Already scared
+        
+        isScared = true;
+        Debug.Log("Cappa scared during jump attack!");
+    }
+    
     // Animation state management
-    private void SetAnimationState(string state)
+    public void SetAnimationState(string state)
     {
         if (animator == null) return;
         
@@ -348,6 +394,8 @@ public class Cappa : MonoBehaviour
             animator.SetBool("IsJumping", state == "Jumping");
         if (HasParameter("IsUnderwaterIdle"))
             animator.SetBool("IsUnderwaterIdle", state == "UnderwaterIdle");
+        if (HasParameter("IsHandAttacking"))
+            animator.SetBool("IsHandAttacking", state == "HandAttack");
         
         // Alternative: Using triggers for one-time animations
         if (state == "Jumping" && HasParameter("StartJump"))
