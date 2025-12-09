@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Linq.Expressions;
 
 public class Raft : MonoBehaviour
 {
@@ -12,10 +14,13 @@ public class Raft : MonoBehaviour
     [SerializeField] private Collider2D raftDetectionCollider; // Child collider to detect player
     [SerializeField] private Transform player;
     [SerializeField] private Transform cappa;
+    [SerializeField] BGMover bgMover;
     
-    private bool movementStarted = false;
+    private bool isMoving = false;
     private bool hasReachedDestination = false;
     private Vector3 previousRaftPosition;
+    public bool canMove;
+    
     
     private void Awake()
     {
@@ -43,21 +48,22 @@ public class Raft : MonoBehaviour
     private void Update()
     {
         // Check if player is on raft to start movement (one-time check)
-        if (!movementStarted)
+        if (!isMoving && canMove)
         {
             CheckPlayerOnRaft();
             
-            if (playerOnRaft && !movementStarted)
+            if (playerOnRaft && !isMoving)
             {
                 StartMovement();
             }
         }
         
         // Handle movement
-        if (movementStarted && !hasReachedDestination)
-        {
-            MoveToDestination();
-        }
+        // if (! && !hasReachedDestination)
+        // {
+        //     // MoveToDestination();
+        //     StartCoroutine(ElevatorMovement());
+        // }
     }
     
     private bool playerOnRaft = false;
@@ -80,7 +86,7 @@ public class Raft : MonoBehaviour
         
         // Use ContactFilter2D to check for overlap
         ContactFilter2D filter = new ContactFilter2D();
-        filter.NoFilter();
+        filter = ContactFilter2D.noFilter;
         Collider2D[] results = new Collider2D[10];
         int count = raftDetectionCollider.Overlap(filter, results);
         
@@ -99,7 +105,7 @@ public class Raft : MonoBehaviour
     
     private void StartMovement()
     {
-        movementStarted = true;
+        isMoving = true;
         
         // Store initial raft position
         previousRaftPosition = transform.position;
@@ -111,74 +117,75 @@ public class Raft : MonoBehaviour
             if (playerController != null)
             {
                 playerController.CanMove = true;
+                // player.transform.parent = gameObject.transform;
             }
+            bgMover.enabled = true;
         }
-        
         Debug.Log("Raft movement started");
     }
     
-    private void MoveToDestination()
-    {
-        if (destination == null)
-        {
-            Debug.LogWarning("Raft: Destination not assigned!");
-            return;
-        }
+    // private void MoveToDestination()
+    // {
+    //     if (destination == null)
+    //     {
+    //         Debug.LogWarning("Raft: Destination not assigned!");
+    //         return;
+    //     }
         
-        // Calculate distance to destination
-        float distance = Vector3.Distance(transform.position, destination.position);
+    //     // Calculate distance to destination
+    //     float distance = Vector3.Distance(transform.position, destination.position);
         
-        if (distance > 0.1f)
-        {
-            // Calculate movement direction
-            Vector3 direction = (destination.position - transform.position).normalized;
-            Vector3 movement = direction * moveSpeed * Time.deltaTime;
+    //     if (distance > 0.1f)
+    //     {
+    //         // Calculate movement direction
+    //         Vector3 direction = (destination.position - transform.position).normalized;
+    //         Vector3 movement = direction * moveSpeed * Time.deltaTime;
             
-            // Move raft
-            transform.position += movement;
+    //         // Move raft
+    //         transform.position += movement;
             
-            // Move cappa with raft
-            if (cappa != null)
-            {
-                cappa.position += movement;
-            }
+    //         // Move cappa with raft
+    //         if (cappa != null)
+    //         {
+    //             cappa.position += movement;
+    //         }
             
-            // Player X position will be synchronized in LateUpdate
-        }
-        else
-        {
-            // Reached destination
-            hasReachedDestination = true;
+    //         // Player X position will be synchronized in LateUpdate
+    //     }
+    //     else
+    //     {
+    //         // Reached destination
+    //         hasReachedDestination = true;
             
-            // Re-enable player movement
-            if (player != null)
-            {
-                PlayerController playerController = player.GetComponent<PlayerController>();
-                if (playerController != null)
-                {
-                    playerController.CanMove = true;
-                }
-            }
-            
-            Debug.Log("Raft reached destination");
-        }
-    }
+    //         // Re-enable player movement
+    //         if (player != null)
+    //         {
+    //             PlayerController playerController = player.GetComponent<PlayerController>();
+    //             if (playerController != null)
+    //             {
+    //                 playerController.CanMove = true;
+    //             }
+    //         }
+    //         
+    //         Debug.Log("Raft reached destination");
+    //     }
+    // }
     
     private void LateUpdate()
     {
         // Add raft's movement to player, preserving player's own movement and jumping
-        if (movementStarted && !hasReachedDestination && player != null)
-        {
-            // Calculate how much the raft moved this frame
-            Vector3 raftMovement = transform.position - previousRaftPosition;
+        // if (isMoving && !hasReachedDestination && player != null)
+        // {
+        //     // Calculate how much the raft moved this frame
+        //     Vector3 raftMovement = transform.position - previousRaftPosition;
             
-            // Add raft's movement to player's current position
-            // This preserves player's own movement (WASD) and jumping (Y physics)
-            player.position += raftMovement;
+        //     // Add raft's movement to player's current position
+        //     // This preserves player's own movement (WASD) and jumping (Y physics)
+        //     player.position += raftMovement;
             
-            // Update previous position for next frame
-            previousRaftPosition = transform.position;
-        }
+        //     // Update previous position for next frame
+        //     previousRaftPosition = transform.position;
+        // }
     }
     
     private void OnDrawGizmosSelected()
@@ -199,5 +206,8 @@ public class Raft : MonoBehaviour
             Gizmos.DrawLine(transform.position, destination.position);
         }
     }
+
+    
+
 }
 
