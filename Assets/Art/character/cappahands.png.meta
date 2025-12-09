@@ -1,0 +1,515 @@
+fileFormatVersion: 2
+guid: 77d98774678f6914796dd76f73d67014
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 73015687261610215
+    second: cappahands_0
+  - first:
+      213: 6837810490257126726
+    second: cappahands_1
+  - first:
+      213: -2220695127212731671
+    second: cappahands_2
+  - first:
+      213: -8127577335131144803
+    second: cappahands_3
+  - first:
+      213: 7052886599389448557
+    second: cappahands_4
+  - first:
+      213: 1869049822314833105
+    second: cappahands_5
+  - first:
+      213: 7532836264271772488
+    second: cappahands_6
+  - first:
+      213: -9127339966602904261
+    second: cappahands_7
+  - first:
+      213: -7409422945815591314
+    second: cappahands_8
+  - first:
+      213: 3744836268774043019
+    second: cappahands_9
+  - first:
+      213: -6259391551188957426
+    second: cappahands_10
+  - first:
+      213: 8520791564289687450
+    second: cappahands_11
+  - first:
+      213: 9204684591149527372
+    second: cappahands_12
+  - first:
+      213: 4443825360207128467
+    second: cappahands_13
+  - first:
+      213: 7343075787672412694
+    second: cappahands_14
+  - first:
+      213: -2349363129332186795
+    second: cappahands_15
+  - first:
+      213: 2592782959786381437
+    second: cappahands_16
+  - first:
+      213: -5981408099365556195
+    second: cappahands_17
+  - first:
+      213: 424035229310883066
+    second: cappahands_18
+  - first:
+      213: -6338516599355411386
+    second: cappahands_19
+  - first:
+      213: 7013897175285751697
+    second: cappahands_20
+  - first:
+      213: -4869605549056623632
+    second: cappahands_21
+  - first:
+      213: 1605374156995311572
+    second: cappahands_22
+  - first:
+      213: -2865062909434283052
+    second: cappahands_23
+  - first:
+      213: -7866643841688595453
+    second: cappahands_24
+  - first:
+      213: 9178766319722234198
+    second: cappahands_25
+  - first:
+      213: 3619395279459682514
+    second: cappahands_26
+  - first:
+      213: 9082535578314236131
+    second: cappahands_27
+  - first:
+      213: 8767620424581095720
+    second: cappahands_28
+  - first:
+      213: -8316686578755219280
+    second: cappahands_29
+  - first:
+      213: -4395648080635646357
+    second: cappahands_30
+  - first:
+      213: 3892009199651370605
+    second: cappahands_31
+  - first:
+      213: 52205317937029410
+    second: cappahands_32
+  - first:
+      213: 35254818011772620
+    second: cappahands_33
+  - first:
+      213: -7462403972653437593
+    second: cappahands_34
+  - first:
+      213: -5197467996080892890
+    second: cappahands_35
+  - first:
+      213: -7229903471083359374
+    second: cappahands_36
+  - first:
+      213: -6079842155104929444
+    second: cappahands_37
+  - first:
+      213: 4005911881985930683
+    second: cappahands_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cappahands_0
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 955
+        width: 312
+        height: 267
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e062467167630100800000000000000
+      internalID: 73015687261610215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cappahands_2
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 957
+        width: 456
+        height: 384
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e25b0c2c818e21e0800000000000000
+      internalID: -2220695127212731671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cappahands_3
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 957
+        width: 525
+        height: 405
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9dfdf6b97b053f80800000000000000
+      internalID: -8127577335131144803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cappahands_8
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 955
+        width: 185
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e66880c66117c2990800000000000000
+      internalID: -7409422945815591314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cappahands_11
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 538
+        width: 376
+        height: 347
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9fb1aa58ceef3670800000000000000
+      internalID: 8520791564289687450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cappahands_12
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 529
+        width: 580
+        height: 372
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c41bafcfddb9dbf70800000000000000
+      internalID: 9204684591149527372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cappahands_24
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 543
+        width: 530
+        height: 263
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30413a1fa1114d290800000000000000
+      internalID: -7866643841688595453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cappahands_29
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 174
+        width: 637
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b0590dce91359c80800000000000000
+      internalID: -8316686578755219280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cappahands_30
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 172
+        width: 555
+        height: 190
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6ea51c1c558ff2c0800000000000000
+      internalID: -4395648080635646357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cappahands_34
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 149
+        width: 592
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76d2787df17307890800000000000000
+      internalID: -7462403972653437593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cappahands_35
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 208
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 624132a1562eed7b0800000000000000
+      internalID: -5197467996080892890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b4d7dcee4ff062240a49302098974bd9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      cappahands_0: 73015687261610215
+      cappahands_1: 6837810490257126726
+      cappahands_10: -6259391551188957426
+      cappahands_11: 8520791564289687450
+      cappahands_12: 9204684591149527372
+      cappahands_13: 4443825360207128467
+      cappahands_14: 7343075787672412694
+      cappahands_15: -2349363129332186795
+      cappahands_16: 2592782959786381437
+      cappahands_17: -5981408099365556195
+      cappahands_18: 424035229310883066
+      cappahands_19: -6338516599355411386
+      cappahands_2: -2220695127212731671
+      cappahands_20: 7013897175285751697
+      cappahands_21: -4869605549056623632
+      cappahands_22: 1605374156995311572
+      cappahands_23: -2865062909434283052
+      cappahands_24: -7866643841688595453
+      cappahands_25: 9178766319722234198
+      cappahands_26: 3619395279459682514
+      cappahands_27: 9082535578314236131
+      cappahands_28: 8767620424581095720
+      cappahands_29: -8316686578755219280
+      cappahands_3: -8127577335131144803
+      cappahands_30: -4395648080635646357
+      cappahands_31: 3892009199651370605
+      cappahands_32: 52205317937029410
+      cappahands_33: 35254818011772620
+      cappahands_34: -7462403972653437593
+      cappahands_35: -5197467996080892890
+      cappahands_36: -7229903471083359374
+      cappahands_37: -6079842155104929444
+      cappahands_38: 4005911881985930683
+      cappahands_4: 7052886599389448557
+      cappahands_5: 1869049822314833105
+      cappahands_6: 7532836264271772488
+      cappahands_7: -9127339966602904261
+      cappahands_8: -7409422945815591314
+      cappahands_9: 3744836268774043019
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

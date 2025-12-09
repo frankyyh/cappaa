@@ -1,0 +1,905 @@
+fileFormatVersion: 2
+guid: d813f954bc22cbb42a620c92a98e43f3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1249651778098322899
+    second: lotuswater_0
+  - first:
+      213: 3244205758590964842
+    second: lotuswater_1
+  - first:
+      213: 4037243928252946861
+    second: lotuswater_2
+  - first:
+      213: 287303296929189917
+    second: lotuswater_3
+  - first:
+      213: -1600132495610316797
+    second: lotuswater_4
+  - first:
+      213: -2359675495978398566
+    second: lotuswater_5
+  - first:
+      213: 1293150620223785497
+    second: lotuswater_6
+  - first:
+      213: 6255324909225957311
+    second: lotuswater_7
+  - first:
+      213: 6215794218036475354
+    second: lotuswater_8
+  - first:
+      213: -2665933263992409916
+    second: lotuswater_9
+  - first:
+      213: 6736278089048807588
+    second: lotuswater_10
+  - first:
+      213: -7817198553319632807
+    second: lotuswater_11
+  - first:
+      213: -5247368225343451820
+    second: lotuswater_12
+  - first:
+      213: 1282594048865771240
+    second: lotuswater_13
+  - first:
+      213: -1599490223224017826
+    second: lotuswater_14
+  - first:
+      213: -2960156154530940178
+    second: lotuswater_15
+  - first:
+      213: 5000649299035667767
+    second: lotuswater_16
+  - first:
+      213: 5451348852406457752
+    second: lotuswater_17
+  - first:
+      213: 6091445294520558216
+    second: lotuswater_18
+  - first:
+      213: 1271806762898844546
+    second: lotuswater_19
+  - first:
+      213: -2236264744523610942
+    second: lotuswater_20
+  - first:
+      213: -304481370763215646
+    second: lotuswater_21
+  - first:
+      213: -623097428903217430
+    second: lotuswater_22
+  - first:
+      213: -7110366981732593630
+    second: lotuswater_23
+  - first:
+      213: 6974015703197911586
+    second: lotuswater_24
+  - first:
+      213: -7772777330221889964
+    second: lotuswater_25
+  - first:
+      213: -5548406756846583683
+    second: lotuswater_26
+  - first:
+      213: -7867980075370751160
+    second: lotuswater_27
+  - first:
+      213: -3916022179323609159
+    second: lotuswater_28
+  - first:
+      213: -3876163528146378255
+    second: lotuswater_29
+  - first:
+      213: 13546226819551416
+    second: lotuswater_30
+  - first:
+      213: 721279575807716162
+    second: lotuswater_31
+  - first:
+      213: -8501884831604965566
+    second: lotuswater_32
+  - first:
+      213: 3518521163641339876
+    second: lotuswater_33
+  - first:
+      213: 7843763963999455948
+    second: lotuswater_34
+  - first:
+      213: 4785275202894465913
+    second: lotuswater_35
+  - first:
+      213: -4579794201916630643
+    second: lotuswater_36
+  - first:
+      213: -6345720580844280227
+    second: lotuswater_37
+  - first:
+      213: -4279527844225175912
+    second: lotuswater_38
+  - first:
+      213: 408057625220272060
+    second: lotuswater_39
+  - first:
+      213: -10667142756211410
+    second: lotuswater_40
+  - first:
+      213: 5578288112403536351
+    second: lotuswater_41
+  - first:
+      213: 6833251376670347206
+    second: lotuswater_42
+  - first:
+      213: 7244892791242849527
+    second: lotuswater_43
+  - first:
+      213: 8985955760940670203
+    second: lotuswater_44
+  - first:
+      213: -6636202239133344859
+    second: lotuswater_45
+  - first:
+      213: -4970782446795219340
+    second: lotuswater_46
+  - first:
+      213: 9187225564506316104
+    second: lotuswater_47
+  - first:
+      213: 6070705752100874439
+    second: lotuswater_48
+  - first:
+      213: -4051690906106055810
+    second: lotuswater_49
+  - first:
+      213: 2690214580904094662
+    second: lotuswater_50
+  - first:
+      213: 4630181514428438140
+    second: lotuswater_51
+  - first:
+      213: 224888885748810432
+    second: lotuswater_52
+  - first:
+      213: -1058632117915693199
+    second: lotuswater_53
+  - first:
+      213: 6606578380419472100
+    second: lotuswater_54
+  - first:
+      213: 3426586589219135311
+    second: lotuswater_55
+  - first:
+      213: -6052265560081667329
+    second: lotuswater_56
+  - first:
+      213: -6113642953059101671
+    second: lotuswater_57
+  - first:
+      213: -3334070062329793472
+    second: lotuswater_58
+  - first:
+      213: 1011468870741022805
+    second: lotuswater_59
+  - first:
+      213: 5281002065101132541
+    second: lotuswater_60
+  - first:
+      213: 999152836954874746
+    second: lotuswater_61
+  - first:
+      213: -5847015344978518969
+    second: lotuswater_62
+  - first:
+      213: 3853623493418358223
+    second: lotuswater_63
+  - first:
+      213: 7138321582402838426
+    second: lotuswater_64
+  - first:
+      213: 2859960062058375495
+    second: lotuswater_65
+  - first:
+      213: 955672440072750075
+    second: lotuswater_66
+  - first:
+      213: 5537724276481186337
+    second: lotuswater_67
+  - first:
+      213: 1409265967594816920
+    second: lotuswater_68
+  - first:
+      213: -7728423075023940034
+    second: lotuswater_69
+  - first:
+      213: 5970152595434650
+    second: lotuswater_70
+  - first:
+      213: 1826667365318755283
+    second: lotuswater_71
+  - first:
+      213: 2919016266826265852
+    second: lotuswater_72
+  - first:
+      213: -928247138394523222
+    second: lotuswater_73
+  - first:
+      213: -7507977981330923550
+    second: lotuswater_74
+  - first:
+      213: 2505732284314626114
+    second: lotuswater_75
+  - first:
+      213: 8670191431677686683
+    second: lotuswater_76
+  - first:
+      213: -5523037293405086819
+    second: lotuswater_77
+  - first:
+      213: 4005803570687295733
+    second: lotuswater_78
+  - first:
+      213: 8950989392932185839
+    second: lotuswater_79
+  - first:
+      213: 9084812637716133451
+    second: lotuswater_80
+  - first:
+      213: 2903641567551464375
+    second: lotuswater_81
+  - first:
+      213: -363754853238124705
+    second: lotuswater_82
+  - first:
+      213: 6913873087303206325
+    second: lotuswater_83
+  - first:
+      213: 6665816744591170833
+    second: lotuswater_84
+  - first:
+      213: 1758290397507350914
+    second: lotuswater_85
+  - first:
+      213: 42745206880682986
+    second: lotuswater_86
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lotuswater_3
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 1406
+        width: 304
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d10534c83d4bcf300800000000000000
+      internalID: 287303296929189917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lotuswater_6
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 1408
+        width: 347
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91ac38f33a132f110800000000000000
+      internalID: 1293150620223785497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lotuswater_8
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 1402
+        width: 246
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad5bdfa98efe24650800000000000000
+      internalID: 6215794218036475354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lotuswater_11
+      rect:
+        serializedVersion: 2
+        x: 1956
+        y: 1430
+        width: 317
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9509fa2455bb38390800000000000000
+      internalID: -7817198553319632807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lotuswater_15
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 1416
+        width: 372
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eea3f7939a96be6d0800000000000000
+      internalID: -2960156154530940178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lotuswater_18
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 1056
+        width: 376
+        height: 245
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8826f94b839298450800000000000000
+      internalID: 6091445294520558216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lotuswater_23
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 1066
+        width: 371
+        height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 220992707e6e25d90800000000000000
+      internalID: -7110366981732593630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lotuswater_29
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 1065
+        width: 360
+        height: 211
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f1a285dec9153ac0800000000000000
+      internalID: -3876163528146378255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lotuswater_38
+      rect:
+        serializedVersion: 2
+        x: 1391
+        y: 1065
+        width: 346
+        height: 215
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89ea09e79101c94c0800000000000000
+      internalID: -4279527844225175912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lotuswater_53
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 767
+        width: 371
+        height: 188
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17fc0d792bbfe41f0800000000000000
+      internalID: -1058632117915693199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lotuswater_63
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 759
+        width: 370
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc51d4f5622da7530800000000000000
+      internalID: 3853623493418358223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lotuswater_65
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 758
+        width: 358
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7492bc2168e90b720800000000000000
+      internalID: 2859960062058375495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lotuswater_71
+      rect:
+        serializedVersion: 2
+        x: 1356
+        y: 752
+        width: 358
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d38f986a40a95910800000000000000
+      internalID: 1826667365318755283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lotuswater_80
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 454
+        width: 361
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b46bc0ae5fcb31e70800000000000000
+      internalID: 9084812637716133451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lotuswater_81
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 456
+        width: 371
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b3a6fc1f9ecb4820800000000000000
+      internalID: 2903641567551464375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lotuswater_82
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 457
+        width: 371
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5fca6363eea3faf0800000000000000
+      internalID: -363754853238124705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lotuswater_83
+      rect:
+        serializedVersion: 2
+        x: 1363
+        y: 452
+        width: 358
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b547de01f203ff50800000000000000
+      internalID: 6913873087303206325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lotuswater_84
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 112
+        width: 727
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11d153f130db18c50800000000000000
+      internalID: 6665816744591170833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lotuswater_85
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 102
+        width: 785
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 281f76bfcc3b66810800000000000000
+      internalID: 1758290397507350914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lotuswater_86
+      rect:
+        serializedVersion: 2
+        x: 1617
+        y: 97
+        width: 760
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae349f70a8cd79000800000000000000
+      internalID: 42745206880682986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 60e1cae3ff7dee647a51384632f6301f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      lotuswater_0: 1249651778098322899
+      lotuswater_1: 3244205758590964842
+      lotuswater_10: 6736278089048807588
+      lotuswater_11: -7817198553319632807
+      lotuswater_12: -5247368225343451820
+      lotuswater_13: 1282594048865771240
+      lotuswater_14: -1599490223224017826
+      lotuswater_15: -2960156154530940178
+      lotuswater_16: 5000649299035667767
+      lotuswater_17: 5451348852406457752
+      lotuswater_18: 6091445294520558216
+      lotuswater_19: 1271806762898844546
+      lotuswater_2: 4037243928252946861
+      lotuswater_20: -2236264744523610942
+      lotuswater_21: -304481370763215646
+      lotuswater_22: -623097428903217430
+      lotuswater_23: -7110366981732593630
+      lotuswater_24: 6974015703197911586
+      lotuswater_25: -7772777330221889964
+      lotuswater_26: -5548406756846583683
+      lotuswater_27: -7867980075370751160
+      lotuswater_28: -3916022179323609159
+      lotuswater_29: -3876163528146378255
+      lotuswater_3: 287303296929189917
+      lotuswater_30: 13546226819551416
+      lotuswater_31: 721279575807716162
+      lotuswater_32: -8501884831604965566
+      lotuswater_33: 3518521163641339876
+      lotuswater_34: 7843763963999455948
+      lotuswater_35: 4785275202894465913
+      lotuswater_36: -4579794201916630643
+      lotuswater_37: -6345720580844280227
+      lotuswater_38: -4279527844225175912
+      lotuswater_39: 408057625220272060
+      lotuswater_4: -1600132495610316797
+      lotuswater_40: -10667142756211410
+      lotuswater_41: 5578288112403536351
+      lotuswater_42: 6833251376670347206
+      lotuswater_43: 7244892791242849527
+      lotuswater_44: 8985955760940670203
+      lotuswater_45: -6636202239133344859
+      lotuswater_46: -4970782446795219340
+      lotuswater_47: 9187225564506316104
+      lotuswater_48: 6070705752100874439
+      lotuswater_49: -4051690906106055810
+      lotuswater_5: -2359675495978398566
+      lotuswater_50: 2690214580904094662
+      lotuswater_51: 4630181514428438140
+      lotuswater_52: 224888885748810432
+      lotuswater_53: -1058632117915693199
+      lotuswater_54: 6606578380419472100
+      lotuswater_55: 3426586589219135311
+      lotuswater_56: -6052265560081667329
+      lotuswater_57: -6113642953059101671
+      lotuswater_58: -3334070062329793472
+      lotuswater_59: 1011468870741022805
+      lotuswater_6: 1293150620223785497
+      lotuswater_60: 5281002065101132541
+      lotuswater_61: 999152836954874746
+      lotuswater_62: -5847015344978518969
+      lotuswater_63: 3853623493418358223
+      lotuswater_64: 7138321582402838426
+      lotuswater_65: 2859960062058375495
+      lotuswater_66: 955672440072750075
+      lotuswater_67: 5537724276481186337
+      lotuswater_68: 1409265967594816920
+      lotuswater_69: -7728423075023940034
+      lotuswater_7: 6255324909225957311
+      lotuswater_70: 5970152595434650
+      lotuswater_71: 1826667365318755283
+      lotuswater_72: 2919016266826265852
+      lotuswater_73: -928247138394523222
+      lotuswater_74: -7507977981330923550
+      lotuswater_75: 2505732284314626114
+      lotuswater_76: 8670191431677686683
+      lotuswater_77: -5523037293405086819
+      lotuswater_78: 4005803570687295733
+      lotuswater_79: 8950989392932185839
+      lotuswater_8: 6215794218036475354
+      lotuswater_80: 9084812637716133451
+      lotuswater_81: 2903641567551464375
+      lotuswater_82: -363754853238124705
+      lotuswater_83: 6913873087303206325
+      lotuswater_84: 6665816744591170833
+      lotuswater_85: 1758290397507350914
+      lotuswater_86: 42745206880682986
+      lotuswater_9: -2665933263992409916
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
