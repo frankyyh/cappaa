@@ -821,7 +821,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.05, y: -1.83, z: -10}
+  m_LocalPosition: {x: -10.05, y: -1.13, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1479,6 +1479,8 @@ MonoBehaviour:
   raftDetectionCollider: {fileID: 1787462679}
   player: {fileID: 862407297}
   cappa: {fileID: 1012889977}
+  bgMover: {fileID: 0}
+  canMove: 0
 --- !u!1 &957449525
 GameObject:
   m_ObjectHideFlags: 0
@@ -2449,7 +2451,7 @@ Transform:
   m_GameObject: {fileID: 1795479217}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.05, y: -1.83, z: -10}
+  m_LocalPosition: {x: -10.05, y: -1.13, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2783,9 +2785,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1814618614119427587, guid: 6d9ab40b52c35ff4faa784fc0d298628, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154708168207304626, guid: 6d9ab40b52c35ff4faa784fc0d298628, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0101795
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154708168207304626, guid: 6d9ab40b52c35ff4faa784fc0d298628, type: 3}
+      propertyPath: m_Size.y
+      value: 2.1316133
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154708168207304626, guid: 6d9ab40b52c35ff4faa784fc0d298628, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.061585426
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154708168207304626, guid: 6d9ab40b52c35ff4faa784fc0d298628, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.08190447
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154708168207304626, guid: 6d9ab40b52c35ff4faa784fc0d298628, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.1457826
+      objectReference: {fileID: 0}
+    - target: {fileID: 3154708168207304626, guid: 6d9ab40b52c35ff4faa784fc0d298628, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.1914287
+      objectReference: {fileID: 0}
     - target: {fileID: 5104827010142128760, guid: 6d9ab40b52c35ff4faa784fc0d298628, type: 3}
       propertyPath: m_Name
       value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567119432070977564, guid: 6d9ab40b52c35ff4faa784fc0d298628, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5567119432070977564, guid: 6d9ab40b52c35ff4faa784fc0d298628, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5567119432070977564, guid: 6d9ab40b52c35ff4faa784fc0d298628, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2793,7 +2831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5567119432070977564, guid: 6d9ab40b52c35ff4faa784fc0d298628, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.83
+      value: -1.13
       objectReference: {fileID: 0}
     - target: {fileID: 5567119432070977564, guid: 6d9ab40b52c35ff4faa784fc0d298628, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2827,9 +2865,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5982468430940896197, guid: 6d9ab40b52c35ff4faa784fc0d298628, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6044291685335272303, guid: 2c8c96254313b8b44bd3025477dc6bf0, type: 3}
     - target: {fileID: 8943530802710472692, guid: 6d9ab40b52c35ff4faa784fc0d298628, type: 3}
-      propertyPath: debugGroundCheck
-      value: 0
+      propertyPath: groundCheckRadius
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

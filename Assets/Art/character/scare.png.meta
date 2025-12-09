@@ -1,31 +1,43 @@
 fileFormatVersion: 2
-guid: 4a301b3fbb493c24fb34ef5a282637c4
+guid: 8b3655574bdf97140942521d6931597e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7671003431636575159
-    second: char_sheet_0
+      213: -4573727909565358220
+    second: scare_0
   - first:
-      213: 281329399213653864
-    second: char_sheet_1
+      213: 7864955110292667854
+    second: scare_1
   - first:
-      213: -858786078591282374
-    second: char_sheet_2
+      213: -1080686381201497173
+    second: scare_2
   - first:
-      213: -6315477973105611788
-    second: char_sheet_3
+      213: -6051561494584113190
+    second: scare_3
   - first:
-      213: 6305640850943150102
-    second: char_sheet_4
+      213: 2092200928250428441
+    second: scare_4
   - first:
-      213: 4927607337356892476
-    second: char_sheet_5
+      213: -1186078306295971912
+    second: scare_5
   - first:
-      213: -6787954343189300914
-    second: char_sheet_6
+      213: 8782948496798718706
+    second: scare_6
   - first:
-      213: -7780444503185191118
-    second: char_sheet_7
+      213: -1436543798080562936
+    second: scare_7
+  - first:
+      213: 8784943941545771342
+    second: scare_8
+  - first:
+      213: 7306892085489204539
+    second: scare_9
+  - first:
+      213: -1088904268808112411
+    second: scare_10
+  - first:
+      213: -8361037862299682861
+    second: scare_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -94,9 +106,9 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,177 +133,265 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: char_sheet_0
+      name: scare_0
       rect:
         serializedVersion: 2
-        x: 80
-        y: 810
-        width: 422
-        height: 613
+        x: 42
+        y: 1483
+        width: 419
+        height: 509
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 94cdf7a850f1b8590800000000000000
-      internalID: -7671003431636575159
+      spriteID: 47f111be2bad680c0800000000000000
+      internalID: -4573727909565358220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_sheet_1
+      name: scare_1
       rect:
         serializedVersion: 2
-        x: 588
-        y: 805
-        width: 437
-        height: 618
+        x: 511
+        y: 1482
+        width: 563
+        height: 408
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 86ff009199b77e300800000000000000
-      internalID: 281329399213653864
+      spriteID: ecd3363a00fe52d60800000000000000
+      internalID: 7864955110292667854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_sheet_2
+      name: scare_2
       rect:
         serializedVersion: 2
-        x: 1069
-        y: 805
-        width: 437
-        height: 614
+        x: 1131
+        y: 1482
+        width: 586
+        height: 561
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a33148f8c9af414f0800000000000000
-      internalID: -858786078591282374
+      spriteID: ba3e1e64671a001f0800000000000000
+      internalID: -1080686381201497173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_sheet_3
+      name: scare_3
       rect:
         serializedVersion: 2
-        x: 1547
-        y: 810
-        width: 422
-        height: 613
+        x: 1757
+        y: 1482
+        width: 624
+        height: 597
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4fb6c3a8e3aea58a0800000000000000
-      internalID: -6315477973105611788
+      spriteID: ad7c1ea12e8840ca0800000000000000
+      internalID: -6051561494584113190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_sheet_4
+      name: scare_4
       rect:
         serializedVersion: 2
-        x: 80
-        y: 91
-        width: 423
-        height: 621
+        x: 2412
+        y: 1482
+        width: 693
+        height: 647
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 61888a9f1f2228750800000000000000
-      internalID: 6305640850943150102
+      spriteID: 91cfb17c8adf80d10800000000000000
+      internalID: 2092200928250428441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_sheet_5
+      name: scare_5
       rect:
         serializedVersion: 2
-        x: 588
-        y: 85
-        width: 426
-        height: 616
+        x: 146
+        y: 770
+        width: 683
+        height: 673
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c3914c704c0626440800000000000000
-      internalID: 4927607337356892476
+      spriteID: 8bf7e6580143a8fe0800000000000000
+      internalID: -1186078306295971912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_sheet_6
+      name: scare_6
       rect:
         serializedVersion: 2
-        x: 1120
-        y: 76
-        width: 427
-        height: 616
+        x: 849
+        y: 771
+        width: 693
+        height: 648
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e49b1ae2d775cc1a0800000000000000
-      internalID: -6787954343189300914
+      spriteID: 2fa1d30bf1d43e970800000000000000
+      internalID: 8782948496798718706
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: char_sheet_7
+      name: scare_7
       rect:
         serializedVersion: 2
-        x: 1593
-        y: 76
-        width: 376
-        height: 616
+        x: 1643
+        y: 771
+        width: 648
+        height: 659
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 23f810962fe460490800000000000000
-      internalID: -7780444503185191118
+      spriteID: 8091e1bd60f501ce0800000000000000
+      internalID: -1436543798080562936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scare_8
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 31
+        width: 607
+        height: 630
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e414e8f58f36ae970800000000000000
+      internalID: 8784943941545771342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scare_9
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 31
+        width: 502
+        height: 599
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3d72bf53ab476560800000000000000
+      internalID: 7306892085489204539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scare_10
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 31
+        width: 453
+        height: 592
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e63947365f63e0f0800000000000000
+      internalID: -1088904268808112411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scare_11
+      rect:
+        serializedVersion: 2
+        x: 2107
+        y: 31
+        width: 366
+        height: 588
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d73908ec50a7fb80800000000000000
+      internalID: -8361037862299682861
       vertices: []
       indices: 
       edges: []
@@ -300,7 +400,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -308,18 +408,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      char_sheet_0: -7671003431636575159
-      char_sheet_1: 281329399213653864
-      char_sheet_2: -858786078591282374
-      char_sheet_3: -6315477973105611788
-      char_sheet_4: 6305640850943150102
-      char_sheet_5: 4927607337356892476
-      char_sheet_6: -6787954343189300914
-      char_sheet_7: -7780444503185191118
+      scare_0: -4573727909565358220
+      scare_1: 7864955110292667854
+      scare_10: -1088904268808112411
+      scare_11: -8361037862299682861
+      scare_2: -1080686381201497173
+      scare_3: -6051561494584113190
+      scare_4: 2092200928250428441
+      scare_5: -1186078306295971912
+      scare_6: 8782948496798718706
+      scare_7: -1436543798080562936
+      scare_8: 8784943941545771342
+      scare_9: 7306892085489204539
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
