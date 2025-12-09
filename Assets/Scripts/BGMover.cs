@@ -18,11 +18,11 @@ public class BGMover : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        StartCoroutine(ElevatorMovement());
         _beginningSectionStart = _beginningSectionHolder.transform.position;
-        _beginningSectionEnd = _beginningSectionStart - new Vector3 (30, _beginningSectionStart.y, _beginningSectionStart.z);
+        _beginningSectionEnd = new Vector3 (_beginningSectionStart.x - 30, _beginningSectionStart.y, _beginningSectionStart.z);
         _endSectionStart = _endingSectionHolder.transform.position;
         _endSectionEnd = _endSectionStart - new Vector3(30, _endSectionStart.y, _endSectionStart.z);
+        StartCoroutine(ElevatorMovement());
 
     }
 
@@ -59,7 +59,7 @@ public class BGMover : MonoBehaviour
             smoothProgress = SmoothProgress(progress);
 
             curPos = Vector3.Lerp(_beginningSectionStart, _beginningSectionEnd, smoothProgress);
-            // gameObject.GetComponent<Rigidbody2D>().MovePosition(curPos);
+            _beginningSectionHolder.transform.position = curPos;
             time += Time.deltaTime;
 
             yield return null;
