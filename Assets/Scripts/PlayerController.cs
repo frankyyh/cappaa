@@ -127,7 +127,7 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("Keyboard.current is null! Make sure Input System is enabled in Project Settings > Player > Active Input Handling");
             return;
         }
-        if (isWalking && isGrounded)
+        if (isWalking && isGrounded && SFXManager.Instance != null)
         {
             SFXManager.Instance.PlayWalk();
         }
