@@ -8,6 +8,13 @@ public class SFXManager : MonoBehaviour
     public AudioClip walkClip;
     public AudioClip jumpClip;
     public AudioClip scareClip;
+    public AudioClip deathClip;
+
+    [Header("Kap SFX")]
+    public AudioClip kapJump;
+    public AudioClip kapScared;
+    public AudioClip kapHand;
+    public AudioClip kapIdle;
 
     [Header("Audio Source")]
     [SerializeField] private AudioSource sfxSource;
@@ -62,13 +69,14 @@ public class SFXManager : MonoBehaviour
         _stepCooldownTimer = stepInterval;
     }
 
-    public void PlayJump()
-    {
-        PlaySFX(jumpClip, 1f, 1f);
-    }
+    // Core SFX
+    public void PlayJump() => PlaySFX(jumpClip);
+    public void PlayScare() => PlaySFX(scareClip);
+    public void PlayDeath() => PlaySFX(deathClip);
 
-    public void PlayScare()
-    {
-        PlaySFX(scareClip, 1f, 1f);
-    }
+    // --- Kap SFX ---
+    public void PlayKapJump() => PlaySFX(kapJump);
+    public void PlayKapScared() => PlaySFX(kapScared);
+    public void PlayKapHand() => PlaySFX(kapHand);
+    public void PlayKapIdle() => PlaySFX(kapIdle, 0.7f);  // idle slightly softer
 }
