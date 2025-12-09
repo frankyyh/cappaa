@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float acceleration = 20f;
     [SerializeField] private float deceleration = 20f;
     [SerializeField] private float jumpForce = 10f;
+    [SerializeField] bool isWalking;
     
     [Header("Ground Check")]
     [SerializeField] private Transform groundCheckPoint;
@@ -126,7 +127,10 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("Keyboard.current is null! Make sure Input System is enabled in Project Settings > Player > Active Input Handling");
             return;
         }
-        
+        if (isWalking && isGrounded)
+        {
+            SFXManager.Instance.PlayWalk();
+        }
         // Read movement input (only if canMove is true)
         horizontalInput = 0f;
         if (canMove)
@@ -175,6 +179,7 @@ public class PlayerController : MonoBehaviour
                 if (hasScareTrigger)
                 {
                     animator.SetTrigger("Scare");
+                    SFXManager.Instance.PlayScare();
                     Debug.Log("Scare animation triggered!");
                 }
                 else
@@ -217,6 +222,7 @@ public class PlayerController : MonoBehaviour
         float velocityChange;
         if (Mathf.Abs(horizontalInput) > 0.1f)
         {
+            isWalking = true;
             // Accelerating towards target speed
             velocityChange = acceleration * Time.fixedDeltaTime;
             
@@ -234,7 +240,7 @@ public class PlayerController : MonoBehaviour
         {
             // Decelerating (no input)
             velocityChange = deceleration * Time.fixedDeltaTime;
-            
+            isWalking = false;
             if (currentVelocityX > 0)
             {
                 currentVelocityX = Mathf.Max(0, currentVelocityX - velocityChange);
@@ -314,7 +320,8 @@ public class PlayerController : MonoBehaviour
             
             // Apply jump force - using velocity for immediate response
             rb.linearVelocity = new Vector2(currentVelocity.x, jumpForce);
-            
+            // Play Jump sound effect
+            SFXManager.Instance.PlayJump();
             Debug.Log($"Applied jump force. New velocity: {rb.linearVelocity}");
             
             hasJumped = true;

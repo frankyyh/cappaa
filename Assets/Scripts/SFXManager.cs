@@ -12,13 +12,15 @@ public class SFXManager : MonoBehaviour
     [Header("Audio Source")]
     [SerializeField] private AudioSource sfxSource;
 
-    [Header("Footstep Pitch Range")]
-    [Range(0.5f, 2f)] public float minWalkPitch = 0.95f;
-    [Range(0.5f, 2f)] public float maxWalkPitch = 1.05f;
+    [Header("Footstep Settings")]
+    [Range(0.1f, 1f)] public float stepInterval = 0.25f;  // delay between footsteps
+    public float minWalkPitch = 0.95f;
+    public float maxWalkPitch = 1.05f;
+
+    private float _stepCooldownTimer = 0f;
 
     private void Awake()
     {
-        // Simple Singleton
         if (Instance == null)
         {
             Instance = this;
@@ -36,6 +38,12 @@ public class SFXManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (_stepCooldownTimer > 0)
+            _stepCooldownTimer -= Time.deltaTime;
+    }
+
     private void PlaySFX(AudioClip clip, float volume = 1f, float pitch = 1f)
     {
         if (clip == null) return;
@@ -43,11 +51,15 @@ public class SFXManager : MonoBehaviour
         sfxSource.PlayOneShot(clip, volume);
     }
 
-    // 🎧 Public Calls
+    // 👣 Footstep with cooldown + random pitch
     public void PlayWalk()
     {
+        if (_stepCooldownTimer > 0) return;
+
         float randomPitch = Random.Range(minWalkPitch, maxWalkPitch);
         PlaySFX(walkClip, 0.6f, randomPitch);
+
+        _stepCooldownTimer = stepInterval;
     }
 
     public void PlayJump()
