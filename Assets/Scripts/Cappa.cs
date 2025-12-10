@@ -41,6 +41,7 @@ public class Cappa : MonoBehaviour
     private bool hasReachedFinalPosition = false;
     private Rigidbody2D rb;
     private Collider2D cappaCollider;
+    private SpriteRenderer spriteRenderer;
     private Vector2 originalPosition;
     private Vector2 underwaterPosition; // Store the underwater position after first scare
     private bool isFirstScare = true; // Track if this is the first time being scared
@@ -58,6 +59,9 @@ public class Cappa : MonoBehaviour
         {
             animator = GetComponent<Animator>();
         }
+        
+        // Get SpriteRenderer component
+        spriteRenderer = GetComponent<SpriteRenderer>();
         
         // If no rigidbody, add one for movement
         if (rb == null)
@@ -93,11 +97,21 @@ public class Cappa : MonoBehaviour
     private void Update()
     {
         // Check if underwater and maintain underwater animation
+        // IMPORTANT: Don't override animations when CappaAttacks is handling an attack
         if (cappaAttacks != null && cappaAttacks.IsUnderwater() && !isScared)
         {
-            // Ensure underwater animation is playing (only if not already in another animation)
-            // Don't force it if attacking or in other animations
-            if (currentAnimationState != "UnderwaterIdle" && currentAnimationState != "Attacking")
+            // Check if CappaAttacks is currently attacking - if so, don't override animations
+            bool isAttacking = cappaAttacks.IsAttacking();
+            
+            // Also check if we're in an attack animation state (backup check)
+            if (!isAttacking && (currentAnimationState == "JumpAttackUp" || currentAnimationState == "JumpAttackFall" || 
+                currentAnimationState == "HandAttack" || currentAnimationState == "Attacking"))
+            {
+                isAttacking = true;
+            }
+            
+            // Only set underwater idle if not attacking and not already in underwater idle
+            if (!isAttacking && currentAnimationState != "UnderwaterIdle")
             {
                 SetAnimationState("UnderwaterIdle");
             }
@@ -278,6 +292,7 @@ public class Cappa : MonoBehaviour
             }
             
             // Wait for splash animation to complete before setting underwater state
+            // Note: Sprite renderer is turned on in OnSplashAnimationComplete()
             if (splashPlayed && !hasEnteredWater && splashAnimationComplete)
             {
                 hasEnteredWater = true;
@@ -309,6 +324,13 @@ public class Cappa : MonoBehaviour
         // Store underwater position for future scares
         underwaterPosition = endPos;
         
+        // Turn off sprite renderer when jump animation is done
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.enabled = false;
+            Debug.Log("Cappa sprite renderer turned off - jump animation complete");
+        }
+        
         // Stop movement
         if (rb != null)
         {
@@ -331,6 +353,19 @@ public class Cappa : MonoBehaviour
         }
         
         Debug.Log("Cappa completed parabolic jump arc - now underwater");
+    }
+    
+    // Called by SplashEffect when splash animation completes - turn on sprite renderer
+    public void OnSplashAnimationComplete()
+    {
+        splashAnimationComplete = true;
+        
+        // Turn on sprite renderer when splash animation is done
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.enabled = true;
+            Debug.Log("Cappa sprite renderer turned on - splash animation complete");
+        }
     }
     
     // Public method to get underwater position (for CappaAttacks to use)
@@ -396,6 +431,22 @@ public class Cappa : MonoBehaviour
             animator.SetBool("IsUnderwaterIdle", state == "UnderwaterIdle");
         if (HasParameter("IsHandAttacking"))
             animator.SetBool("IsHandAttacking", state == "HandAttack");
+        if (HasParameter("IsJumpAttackingUp"))
+            animator.SetBool("IsJumpAttackingUp", state == "JumpAttackUp");
+        if (HasParameter("IsJumpAttackingFall"))
+            animator.SetBool("IsJumpAttackingFall", state == "JumpAttackFall");
+        
+        // Also set "Attacking" state for jump attacks to prevent Update() from overriding
+        if (state == "JumpAttackUp" || state == "JumpAttackFall" || state == "HandAttack")
+        {
+            if (HasParameter("IsAttacking"))
+                animator.SetBool("IsAttacking", true);
+        }
+        else if (state == "UnderwaterIdle")
+        {
+            if (HasParameter("IsAttacking"))
+                animator.SetBool("IsAttacking", false);
+        }
         
         // Alternative: Using triggers for one-time animations
         if (state == "Jumping" && HasParameter("StartJump"))
@@ -520,12 +571,6 @@ public class Cappa : MonoBehaviour
                 Debug.LogWarning("Cappa: Splash Prefab is not assigned!");
             }
         }
-    }
-    
-    // Called by SplashEffect when splash animation completes
-    public void OnSplashAnimationComplete()
-    {
-        splashAnimationComplete = true;
     }
     
     // Helper method to check if animator has a parameter (for splash animator)
