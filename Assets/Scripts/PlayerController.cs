@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float restartDelay = 1f;
     
     [Header("Animation")]
-    [SerializeField] private Animator animator;
+    public Animator animator;
     
     private Rigidbody2D rb;
     private Keyboard keyboard;
