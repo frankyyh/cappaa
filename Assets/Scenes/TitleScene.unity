@@ -1136,7 +1136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneFlowController
   titleSceneName: TitleScene
-  gameSceneName: codinglevel
+  gameSceneName: Level2
   endingSceneName: FinalScene
 --- !u!4 &1740898129
 Transform:
