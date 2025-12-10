@@ -21,12 +21,12 @@ public class Cappa : MonoBehaviour
     [SerializeField] private Transform finalWaterPosition; // Final position in water where Cappa stops
     
     [Header("References")]
-    [SerializeField] private Transform player;
+    public Transform player;
     [SerializeField] private string waterTag = "Water";
     [SerializeField] private CappaAttacks cappaAttacks;
     
     [Header("Animation")]
-    [SerializeField] private Animator animator;
+    [SerializeField] public Animator animator;
     
     [Header("Splash Effect")]
     [SerializeField] private GameObject splashEffectObject; // Child object with splash animation (recommended)
@@ -35,13 +35,14 @@ public class Cappa : MonoBehaviour
     [SerializeField] private float splashTriggerTime = 0.6f; // Time (0-1) during jump when splash plays (0.6 = 60% through jump)
     
     private bool splashAnimationComplete = false;
+    public bool stalling = true;
     
     private bool isScared = false;
     private bool hasReachedHorizontalEnd = false;
     private bool hasReachedFinalPosition = false;
     private Rigidbody2D rb;
     private Collider2D cappaCollider;
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     private Vector2 originalPosition;
     private Vector2 underwaterPosition; // Store the underwater position after first scare
     private bool isFirstScare = true; // Track if this is the first time being scared
@@ -333,7 +334,10 @@ public class Cappa : MonoBehaviour
         // Turn off sprite renderer when jump animation is done
         if (spriteRenderer != null)
         {
-            spriteRenderer.enabled = false;
+            animator.SetBool("IsUnderwaterIdle", true);
+
+            // spriteRenderer.enabled = false;
+            // spriteRenderer.sortingOrder = -4;
             Debug.Log("Cappa sprite renderer turned off - jump animation complete");
         }
         
@@ -354,6 +358,10 @@ public class Cappa : MonoBehaviour
         // Ensure underwater state is set if not already
         if (cappaAttacks != null && !cappaAttacks.IsUnderwater())
         {
+            while(stalling)
+            {
+                yield return null;
+            }
             cappaAttacks.SetUnderwater(true);
             SetAnimationState("UnderwaterIdle");
         }
@@ -367,11 +375,11 @@ public class Cappa : MonoBehaviour
         splashAnimationComplete = true;
         
         // Turn on sprite renderer when splash animation is done
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.enabled = true;
-            Debug.Log("Cappa sprite renderer turned on - splash animation complete");
-        }
+        // if (spriteRenderer != null)
+        // {
+        //     spriteRenderer.enabled = true;
+        //     Debug.Log("Cappa sprite renderer turned on - splash animation complete");
+        // }
     }
     
     // Public method to get underwater position (for CappaAttacks to use)

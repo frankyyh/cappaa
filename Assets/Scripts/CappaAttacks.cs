@@ -20,7 +20,7 @@ public class CappaAttacks : MonoBehaviour
     [SerializeField] private float maxAttackDelay = 10f;
     
     [Header("References")]
-    [SerializeField] private Transform player;
+    [SerializeField] public Transform player;
     [SerializeField] private Cappa cappaScript;
     
     [Header("Animation")]

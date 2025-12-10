@@ -390,6 +390,7 @@ public class PlayerController : MonoBehaviour
     private void RestartGame()
     {
         // Reload the current scene
+        Debug.Log("Starting new scene");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
