@@ -14,5 +14,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HelenSFXtest.unity
     guid: 30a0abd05ac3cb0438d4837eea0a7600
+  - enabled: 1
+    path: Assets/Scenes/codinglevel.unity
+    guid: ec5fa76392239e84b958fad3ee8e8fe8
+  - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
+    guid: fc453b51eada18e4cb26e35e16abfd7a
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
