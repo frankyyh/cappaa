@@ -15,12 +15,14 @@ public class Raft : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private Transform cappa;
     [SerializeField] BGMover bgMover;
+    [SerializeField] Rigidbody2D _rb;
     
     private bool isMoving = false;
     private bool hasReachedDestination = false;
     private Vector3 previousRaftPosition;
     public bool canMove;
     
+    public float duration = 6;
     
     private void Awake()
     {
@@ -47,6 +49,10 @@ public class Raft : MonoBehaviour
     
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            canMove = true;
+        }
         // Check if player is on raft to start movement (one-time check)
         if (!isMoving && canMove)
         {
@@ -119,11 +125,46 @@ public class Raft : MonoBehaviour
                 playerController.CanMove = true;
                 // player.transform.parent = gameObject.transform;
             }
-            bgMover.enabled = true;
+            // bgMover.enabled = true;
         }
+        StartCoroutine(MoveRaft());
         Debug.Log("Raft movement started");
     }
-    
+
+    IEnumerator MoveRaft()
+    {
+        float progress;
+        float time = 0f;
+        Vector3 curPos;
+        player.GetComponent<RelativeJoint2D>().enabled = true;
+        player.GetComponent<PlayerController>().animator.SetFloat("Speed", 0);
+        player.GetComponent<PlayerController>().enabled = false;
+        
+        Parallax[] para = FindObjectsByType<Parallax>(FindObjectsSortMode.None);
+        foreach(Parallax p in para)
+        {
+            p.enabled = false;
+        }
+        while (time<duration)
+        {
+            progress = time / duration;
+            float smoothProgress;
+            smoothProgress = SmoothProgress(progress);
+            curPos = Vector3.Lerp(previousRaftPosition, destination.position, smoothProgress);
+            _rb.MovePosition(curPos);
+            time += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    public float SmoothProgress(float progress)
+    {
+        progress = Mathf.Lerp(-Mathf.PI / 2, Mathf.PI / 2, progress);
+        progress = Mathf.Sin(progress);
+        progress = (progress / 2f) + .5f;
+
+        return progress;
+    }
     // private void MoveToDestination()
     // {
     //     if (destination == null)
@@ -131,32 +172,32 @@ public class Raft : MonoBehaviour
     //         Debug.LogWarning("Raft: Destination not assigned!");
     //         return;
     //     }
-        
+
     //     // Calculate distance to destination
     //     float distance = Vector3.Distance(transform.position, destination.position);
-        
+
     //     if (distance > 0.1f)
     //     {
     //         // Calculate movement direction
     //         Vector3 direction = (destination.position - transform.position).normalized;
     //         Vector3 movement = direction * moveSpeed * Time.deltaTime;
-            
+
     //         // Move raft
     //         transform.position += movement;
-            
+
     //         // Move cappa with raft
     //         if (cappa != null)
     //         {
     //             cappa.position += movement;
     //         }
-            
+
     //         // Player X position will be synchronized in LateUpdate
     //     }
     //     else
     //     {
     //         // Reached destination
     //         hasReachedDestination = true;
-            
+
     //         // Re-enable player movement
     //         if (player != null)
     //         {
@@ -170,7 +211,7 @@ public class Raft : MonoBehaviour
     //         Debug.Log("Raft reached destination");
     //     }
     // }
-    
+
     private void LateUpdate()
     {
         // Add raft's movement to player, preserving player's own movement and jumping
