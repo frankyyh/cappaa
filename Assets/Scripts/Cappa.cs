@@ -264,9 +264,13 @@ public class Cappa : MonoBehaviour
     
     private System.Collections.IEnumerator ParabolicJumpArc()
     {
+        Debug.Log($"=== ParabolicJumpArc STARTED === splashTriggerTime={splashTriggerTime}, jumpDuration={jumpDuration}, useChildObject={useChildObject}");
+        
         Vector2 startPos = transform.position;
         Vector2 peakPos = horizontalEndPosition.position;
         Vector2 endPos = finalWaterPosition.position;
+        
+        Debug.Log($"Jump positions - Start: {startPos}, Peak: {peakPos}, End: {endPos}");
         
         // Calculate the peak height (above the horizontal end position)
         Vector2 arcPeak = new Vector2(peakPos.x, peakPos.y + jumpArcHeight);
@@ -291,11 +295,20 @@ public class Cappa : MonoBehaviour
             // Play splash effect at fixed time during jump
             if (!splashPlayed && t >= splashTriggerTime)
             {
+                Debug.Log($"=== SPLASH TRIGGERED === t={t}, splashTriggerTime={splashTriggerTime}, elapsedTime={elapsedTime}, jumpDuration={jumpDuration}");
                 PlaySplashEffect();
                 splashPlayed = true;
                 splashAnimationComplete = false; // Reset flag
                 
                 Debug.Log("Cappa entered water - splash effect played");
+            }
+            else if (!splashPlayed)
+            {
+                // Debug every 10% progress
+                if (Mathf.FloorToInt(t * 10) != Mathf.FloorToInt((t - Time.deltaTime / jumpDuration) * 10))
+                {
+                    Debug.Log($"Jump progress: {t * 100:F1}% (splash triggers at {splashTriggerTime * 100:F1}%)");
+                }
             }
             
             // Wait for splash animation to complete before setting underwater state
@@ -503,10 +516,17 @@ public class Cappa : MonoBehaviour
     // Play splash effect when entering water
     private void PlaySplashEffect()
     {
+        Debug.Log($"=== PlaySplashEffect CALLED === useChildObject={useChildObject}, splashEffectObject={splashEffectObject != null}, splashPrefab={splashPrefab != null}");
+        
         // Play enter water sound effect when splash animation starts
         if (SFXManager.Instance != null)
         {
+            Debug.Log("Playing kap enter water sound effect");
             SFXManager.Instance.PlayKapEnterWater();
+        }
+        else
+        {
+            Debug.LogError("SFXManager.Instance is NULL! Cannot play kap enter water sound.");
         }
         
         if (useChildObject)
@@ -529,15 +549,26 @@ public class Cappa : MonoBehaviour
                 Animator splashAnimator = splashEffectObject.GetComponent<Animator>();
                 if (splashAnimator != null)
                 {
+                    Debug.Log($"Splash animator found. Checking for parameters...");
                     // Try to trigger splash animation
                     if (HasParameterInAnimator(splashAnimator, "Splash"))
                     {
+                        Debug.Log("Triggering 'Splash' parameter");
                         splashAnimator.SetTrigger("Splash");
                     }
                     else if (HasParameterInAnimator(splashAnimator, "Play"))
                     {
+                        Debug.Log("Triggering 'Play' parameter");
                         splashAnimator.SetTrigger("Play");
                     }
+                    else
+                    {
+                        Debug.LogWarning("Splash animator found but no 'Splash' or 'Play' parameter exists!");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("Splash effect object has no Animator component!");
                 }
                 
                 Debug.Log("Splash effect activated (child object)");

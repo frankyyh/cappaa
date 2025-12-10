@@ -62,7 +62,17 @@ public class SFXManager : MonoBehaviour
 
     private void PlaySFX(AudioClip clip, float volume = 1f, float pitch = 1f)
     {
-        if (clip == null) return;
+        if (clip == null)
+        {
+            Debug.LogWarning("PlaySFX: AudioClip is NULL! Cannot play sound.");
+            return;
+        }
+        if (sfxSource == null)
+        {
+            Debug.LogError("PlaySFX: AudioSource (sfxSource) is NULL! Cannot play sound.");
+            return;
+        }
+        Debug.Log($"Playing sound: {clip.name}, volume: {volume}, pitch: {pitch}");
         sfxSource.pitch = pitch;
         sfxSource.PlayOneShot(clip, volume);
     }
@@ -113,6 +123,7 @@ public class SFXManager : MonoBehaviour
 
     public void PlayKapEnterWater()
     {
+        Debug.Log($"PlayKapEnterWater called. kapEnterWater clip: {(kapEnterWater != null ? kapEnterWater.name : "NULL")}");
         PlaySFX(kapEnterWater, 1f, 1f);
     }
 
