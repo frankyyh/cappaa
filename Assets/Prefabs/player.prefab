@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8943530802710472692}
   - component: {fileID: 3154708168207304626}
   - component: {fileID: 2437424432291130730}
+  - component: {fileID: 4317078803964309056}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -219,6 +220,26 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!254 &4317078803964309056
+RelativeJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5104827010142128760}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 3
+  m_MaxForce: 10000
+  m_MaxTorque: 10000
+  m_CorrectionScale: 0.3
+  m_AutoConfigureOffset: 1
+  m_LinearOffset: {x: 0, y: 0}
+  m_AngularOffset: 0
 --- !u!1 &5360897186736249065
 GameObject:
   m_ObjectHideFlags: 0
