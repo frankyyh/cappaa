@@ -217,11 +217,6 @@ public class PlayerController : MonoBehaviour
         float currentVelocityX = rb.linearVelocity.x;
         float targetVelocityX = horizontalInput * moveSpeed;
         
-        if (Mathf.Abs(horizontalInput) > 0.1f)
-        {
-            Debug.Log($"Movement input detected! Input: {horizontalInput}, Target: {targetVelocityX}, Current: {currentVelocityX}");
-        }
-        
         // Apply acceleration or deceleration
         float velocityChange;
         if (Mathf.Abs(horizontalInput) > 0.1f)
@@ -258,11 +253,6 @@ public class PlayerController : MonoBehaviour
         // Apply the new horizontal velocity (preserve Y velocity)
         Vector2 newVel = new Vector2(currentVelocityX, rb.linearVelocity.y);
         rb.linearVelocity = newVel;
-        
-        if (Mathf.Abs(horizontalInput) > 0.1f)
-        {
-            Debug.Log($"Applied velocity: {newVel}, Rigidbody velocity after: {rb.linearVelocity}");
-        }
     }
     
     private void CheckGrounded()
@@ -330,7 +320,6 @@ public class PlayerController : MonoBehaviour
                 SFXManager.Instance.PlayJump();
 
             }
-            Debug.Log($"Applied jump force. New velocity: {rb.linearVelocity}");
             
             hasJumped = true;
             jumpBufferCounter = 0;
