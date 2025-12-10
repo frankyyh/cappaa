@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2437424432291130730}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  debugGroundCheck: 1
+  debugGroundCheck: 0
   jumpBufferTime: 0.2
   waterTag: Water
   restartDelay: 1

@@ -212,6 +212,12 @@ public class Cappa : MonoBehaviour
         isFirstScare = false;
         Debug.Log("Cappa is scared! Jumping away!");
         
+        // Play scared sound effect
+        if (SFXManager.Instance != null)
+        {
+            SFXManager.Instance.PlayKapScared();
+        }
+        
         // Make cappa fall through ground (disable collider temporarily)
         if (cappaCollider != null)
         {
@@ -489,6 +495,12 @@ public class Cappa : MonoBehaviour
     // Play splash effect when entering water
     private void PlaySplashEffect()
     {
+        // Play enter water sound effect when splash animation starts
+        if (SFXManager.Instance != null)
+        {
+            SFXManager.Instance.PlayKapEnterWater();
+        }
+        
         if (useChildObject)
         {
             // Use child object approach (recommended)

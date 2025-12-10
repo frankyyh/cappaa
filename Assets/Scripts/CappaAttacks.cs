@@ -250,6 +250,12 @@ public class CappaAttacks : MonoBehaviour
     {
         if (animator == null) return;
         
+        // Play hand attack sound effect
+        if (SFXManager.Instance != null)
+        {
+            SFXManager.Instance.PlayKapHand();
+        }
+        
         // Try trigger parameter first (recommended for one-time animations)
         if (HasParameter("HandAttack"))
         {
@@ -897,6 +903,13 @@ public class CappaAttacks : MonoBehaviour
     public void StartJumpUpMovement()
     {
         shouldStartJumpUp = true;
+        
+        // Play jump attack sound effect when movement starts
+        if (SFXManager.Instance != null)
+        {
+            SFXManager.Instance.PlayKapHand();
+        }
+        
         Debug.Log("Jump up movement started - Cappa begins moving up");
     }
     
