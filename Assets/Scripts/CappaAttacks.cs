@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CappaAttacks : MonoBehaviour
 {
@@ -28,6 +29,11 @@ public class CappaAttacks : MonoBehaviour
     [Header("Scare Settings")]
     [SerializeField] private bool useKeyCode = true; // Use legacy KeyCode or new Input System
     [SerializeField] private KeyCode scareKeyCode = KeyCode.E; // Key to press to scare
+    
+    [Header("Attack Counter")]
+    [SerializeField] private int attackCounter = 0; // Current attack count
+    [SerializeField] private int attackThreshold = 5; // Number of attacks before loading next scene
+    [SerializeField] private string nextSceneName = ""; // Name of scene to load when threshold reached
     
     private float _attackTimer;
     private bool isAttacking = false;
@@ -197,6 +203,9 @@ public class CappaAttacks : MonoBehaviour
         }
         
         isAttacking = false;
+        
+        // Increment attack counter and check if threshold reached
+        IncrementAttackCounter();
     }
     
     // Called by Animation Event at first frame where hands are held high
@@ -1004,6 +1013,9 @@ public class CappaAttacks : MonoBehaviour
         }
         
         Debug.Log($"CompleteJumpDown: Jump attack fully complete. isAttacking={isAttacking}, underwater={underwater}");
+        
+        // Increment attack counter and check if threshold reached
+        IncrementAttackCounter();
     }
     
     // Public method to set underwater state
@@ -1042,6 +1054,45 @@ public class CappaAttacks : MonoBehaviour
     public bool IsAttacking()
     {
         return isAttacking;
+    }
+    
+    // Increment attack counter and check if threshold reached
+    private void IncrementAttackCounter()
+    {
+        attackCounter++;
+        Debug.Log($"Attack counter incremented: {attackCounter}/{attackThreshold}");
+        
+        if (attackCounter >= attackThreshold)
+        {
+            Debug.Log($"Attack threshold reached ({attackCounter})! Loading next scene: {nextSceneName}");
+            LoadNextScene();
+        }
+    }
+    
+    // Load the next scene when attack threshold is reached
+    private void LoadNextScene()
+    {
+        if (!string.IsNullOrEmpty(nextSceneName))
+        {
+            SceneManager.LoadScene(nextSceneName);
+        }
+        else
+        {
+            Debug.LogWarning("Next scene name is not set! Cannot load next scene.");
+        }
+    }
+    
+    // Public method to get current attack counter (for debugging/testing)
+    public int GetAttackCounter()
+    {
+        return attackCounter;
+    }
+    
+    // Public method to reset attack counter (if needed)
+    public void ResetAttackCounter()
+    {
+        attackCounter = 0;
+        Debug.Log("Attack counter reset to 0");
     }
     
 }
