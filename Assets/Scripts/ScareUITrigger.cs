@@ -1,80 +1,41 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
-public class ScareUITrigger : MonoBehaviour
+public class ShowTextOnTrigger : MonoBehaviour
 {
-    [Header("UI Settings")]
-    public CanvasGroup uiCanvasGroup;    // Assign your UI panel here
-    public KeyCode scareKey = KeyCode.E;
-    public float fadeDuration = 0.5f;
+    public GameObject textUI;  // Drag your UI Text object here in Inspector
+    private bool playerInside = false;
 
-    private bool isPlayerInside = false;
-    private bool hasBeenUsed = false;
-
-    private void Start()
+    void Start()
     {
-        uiCanvasGroup.alpha = 0f; // Hide at start
-        uiCanvasGroup.interactable = false;
-        uiCanvasGroup.blocksRaycasts = false;
+        textUI.SetActive(false); // Hide at start
     }
 
-    private void Update()
+    void Update()
     {
-        if (isPlayerInside && !hasBeenUsed)
+        if (playerInside && Input.GetKeyDown(KeyCode.E))
         {
-            if (Input.GetKeyDown(scareKey))
-            {
-                hasBeenUsed = true;
-                StartCoroutine(FadeOutUI());
-            }
+            textUI.SetActive(false); // Hide when pressing E
+            playerInside = false;    // Disable further interaction
+            gameObject.SetActive(false); // Remove trigger so it never shows again
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !hasBeenUsed)
+        if (other.CompareTag("Player"))
         {
-            isPlayerInside = true;
-            StartCoroutine(FadeInUI());
+            textUI.SetActive(true);
+            playerInside = true;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !hasBeenUsed)
+        if (other.CompareTag("Player"))
         {
-            isPlayerInside = false;
-            StartCoroutine(FadeOutUI());
-        }
-    }
-
-    private IEnumerator FadeInUI()
-    {
-        float t = 0;
-        while (t < fadeDuration)
-        {
-            t += Time.deltaTime;
-            uiCanvasGroup.alpha = Mathf.Lerp(0f, 1f, t / fadeDuration);
-            yield return null;
-        }
-        uiCanvasGroup.alpha = 1f;
-    }
-
-    private IEnumerator FadeOutUI()
-    {
-        float t = 0;
-        while (t < fadeDuration)
-        {
-            t += Time.deltaTime;
-            uiCanvasGroup.alpha = Mathf.Lerp(1f, 0f, t / fadeDuration);
-            yield return null;
-        }
-        uiCanvasGroup.alpha = 0f;
-
-        if (hasBeenUsed)
-        {
-            uiCanvasGroup.gameObject.SetActive(false); // permanently disable
+            textUI.SetActive(false);
+            playerInside = false;
         }
     }
 }
