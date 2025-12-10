@@ -2010,6 +2010,9 @@ MonoBehaviour:
   animator: {fileID: 1012889980}
   useKeyCode: 1
   scareKeyCode: 101
+  attackCounter: 0
+  attackThreshold: 5
+  nextSceneName: FinalScene
 --- !u!95 &1012889980
 Animator:
   serializedVersion: 7
