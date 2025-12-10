@@ -146,7 +146,7 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  debugGroundCheck: 1
+  debugGroundCheck: 0
   jumpBufferTime: 0.2
   waterTag: Water
   restartDelay: 1
