@@ -7,8 +7,6 @@ public class CappaAttacks : MonoBehaviour
     [SerializeField] private bool underwater = false;
     
     [Header("Hands Attack")]
-    [SerializeField] private GameObject handsIndicator;
-    [SerializeField] private float _handsAttackIndicatorDelay;
     [SerializeField] private Collider2D handCollider1;
     [SerializeField] private Collider2D handCollider2;
     
@@ -26,11 +24,20 @@ public class CappaAttacks : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private Cappa cappaScript;
     
+    [Header("Animation")]
+    [SerializeField] private Animator animator; // Cappa's animator for attack animations
+    
+    [Header("Scare Settings")]
+    [SerializeField] private bool useKeyCode = true; // Use legacy KeyCode or new Input System
+    [SerializeField] private KeyCode scareKeyCode = KeyCode.E; // Key to press to scare
+    
     private float _attackTimer;
     private bool isAttacking = false;
     private bool wasScaredDuringJump = false;
     private Vector3 originalPosition;
     private float jumpStartY;
+    private bool handCollidersActivated = false; // Track if colliders are active
+    private bool handCollidersDeactivated = false; // Track if colliders should be deactivated
     
     void Start()
     {
@@ -50,6 +57,12 @@ public class CappaAttacks : MonoBehaviour
         if (cappaScript == null)
         {
             cappaScript = GetComponent<Cappa>();
+        }
+        
+        // Get animator from Cappa script if not assigned
+        if (animator == null && cappaScript != null)
+        {
+            animator = cappaScript.GetComponent<Animator>();
         }
         
         // Disable colliders initially
@@ -88,47 +101,23 @@ public class CappaAttacks : MonoBehaviour
     IEnumerator HandAttackCoroutine()
     {
         isAttacking = true;
+        handCollidersActivated = false;
+        handCollidersDeactivated = false;
         
-        // Show indicator
-        if (handsIndicator != null)
+        // Trigger hand attack animation (indicator is handled by animation holding on specific frames)
+        TriggerHandAttackAnimation();
+        
+        // Wait for colliders to be activated by animation event (first frame with hands high)
+        while (!handCollidersActivated)
         {
-            handsIndicator.SetActive(true);
-        }
-        
-        yield return new WaitForSeconds(_handsAttackIndicatorDelay);
-        
-        // Hide indicator and raise hands (enable colliders)
-        if (handsIndicator != null)
-        {
-            handsIndicator.SetActive(false);
-        }
-        
-        // Activate hand collider GameObjects and enable colliders
-        if (handCollider1 != null)
-        {
-            // Activate the GameObject first
-            handCollider1.gameObject.SetActive(true);
-            // Then enable the collider component
-            handCollider1.enabled = true;
-        }
-        
-        if (handCollider2 != null)
-        {
-            // Activate the GameObject first
-            handCollider2.gameObject.SetActive(true);
-            // Then enable the collider component
-            handCollider2.enabled = true;
+            yield return null;
         }
         
         // Check for player collision while colliders are active
-        float checkDuration = 0.5f; // How long to check for collision
-        float elapsed = 0f;
         bool playerHit = false;
         
-        while (elapsed < checkDuration && !playerHit)
+        while (!handCollidersDeactivated && !playerHit)
         {
-            elapsed += Time.deltaTime;
-            
             // Check if player is colliding with either hand collider
             if (player != null)
             {
@@ -160,7 +149,46 @@ public class CappaAttacks : MonoBehaviour
             yield return null;
         }
         
-        // Deactivate hand collider GameObjects after attack
+        // Wait for animation to finish before returning to idle
+        // The colliders are already deactivated by the animation event
+        
+        // Return to underwater idle animation after attack
+        ReturnToUnderwaterIdle();
+        
+        isAttacking = false;
+    }
+    
+    // Called by Animation Event at first frame where hands are held high
+    public void ActivateHandColliders()
+    {
+        handCollidersActivated = true;
+        
+        // Activate hand collider GameObjects and enable colliders
+        if (handCollider1 != null)
+        {
+            // Activate the GameObject first
+            handCollider1.gameObject.SetActive(true);
+            // Then enable the collider component
+            handCollider1.enabled = true;
+        }
+        
+        if (handCollider2 != null)
+        {
+            // Activate the GameObject first
+            handCollider2.gameObject.SetActive(true);
+            // Then enable the collider component
+            handCollider2.enabled = true;
+        }
+        
+        Debug.Log("Hand colliders activated by animation event");
+    }
+    
+    // Called by Animation Event at second frame where hands are held high
+    public void DeactivateHandColliders()
+    {
+        handCollidersDeactivated = true;
+        
+        // Deactivate hand collider GameObjects
         if (handCollider1 != null)
         {
             handCollider1.enabled = false;
@@ -173,7 +201,67 @@ public class CappaAttacks : MonoBehaviour
             handCollider2.gameObject.SetActive(false);
         }
         
-        isAttacking = false;
+        Debug.Log("Hand colliders deactivated by animation event");
+    }
+    
+    // Trigger hand attack animation
+    private void TriggerHandAttackAnimation()
+    {
+        if (animator == null) return;
+        
+        // Try trigger parameter first (recommended for one-time animations)
+        if (HasParameter("HandAttack"))
+        {
+            animator.SetTrigger("HandAttack");
+        }
+        else if (HasParameter("HandsAttack"))
+        {
+            animator.SetTrigger("HandsAttack");
+        }
+        else if (HasParameter("Attack"))
+        {
+            animator.SetTrigger("Attack");
+        }
+        // Fallback to bool parameter
+        else if (HasParameter("IsHandAttacking"))
+        {
+            animator.SetBool("IsHandAttacking", true);
+        }
+        
+        Debug.Log("Hand attack animation triggered");
+    }
+    
+    // Return to underwater idle animation after attack
+    private void ReturnToUnderwaterIdle()
+    {
+        if (cappaScript != null)
+        {
+            cappaScript.SetAnimationState("UnderwaterIdle");
+        }
+        else if (animator != null)
+        {
+            // Fallback: directly set underwater idle if Cappa script not available
+            if (HasParameter("IsHandAttacking"))
+            {
+                animator.SetBool("IsHandAttacking", false);
+            }
+            if (HasParameter("IsUnderwaterIdle"))
+            {
+                animator.SetBool("IsUnderwaterIdle", true);
+            }
+        }
+    }
+    
+    // Helper method to check if animator has a parameter
+    private bool HasParameter(string paramName)
+    {
+        if (animator == null || animator.parameters == null) return false;
+        
+        foreach (AnimatorControllerParameter param in animator.parameters)
+        {
+            if (param.name == paramName) return true;
+        }
+        return false;
     }
     
     void JumpAttack()
@@ -240,7 +328,33 @@ public class CappaAttacks : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             
-            // Check if cappa was scared during wait
+            // Check if player pressed scare key during wait
+            bool scareKeyPressed = false;
+            if (useKeyCode)
+            {
+                scareKeyPressed = Input.GetKeyDown(scareKeyCode);
+            }
+            else
+            {
+                // Use new Input System
+                UnityEngine.InputSystem.Keyboard keyboard = UnityEngine.InputSystem.Keyboard.current;
+                if (keyboard != null && cappaScript != null)
+                {
+                    // Get the scare key from Cappa script
+                    UnityEngine.InputSystem.Key scareKey = cappaScript.GetScareKey();
+                    scareKeyPressed = keyboard[scareKey].wasPressedThisFrame;
+                }
+            }
+            
+            // If player pressed scare key, scare Cappa
+            if (scareKeyPressed && cappaScript != null)
+            {
+                cappaScript.ScareCappaDuringJumpAttack();
+                wasScaredDuringJump = true;
+                break;
+            }
+            
+            // Also check if cappa was already scared (backup check)
             if (cappaScript != null && cappaScript.IsScared())
             {
                 wasScaredDuringJump = true;
@@ -253,26 +367,40 @@ public class CappaAttacks : MonoBehaviour
         // Phase 3: Handle outcome
         if (wasScaredDuringJump)
         {
-            // Player scared cappa - fall back quickly
+            // Player scared cappa - return to underwater position
+            Vector2 underwaterPos = Vector2.zero;
+            if (cappaScript != null)
+            {
+                underwaterPos = cappaScript.GetUnderwaterPosition();
+            }
+            
+            // If underwater position not available, use current position as fallback
+            if (underwaterPos == Vector2.zero)
+            {
+                underwaterPos = transform.position;
+            }
+            
+            // Fall back quickly to underwater position
             float fallTime = 0.3f;
             float fallElapsed = 0f;
-            float currentY = transform.position.y;
+            Vector2 startPos = transform.position;
             
             while (fallElapsed < fallTime)
             {
                 fallElapsed += Time.deltaTime;
                 float fallProgress = fallElapsed / fallTime;
-                float yOffset = Mathf.Lerp(jumpHeight, 0f, fallProgress);
                 
-                Vector3 currentPos = transform.position;
-                transform.position = new Vector3(currentPos.x, jumpStartY + yOffset, currentPos.z);
+                // Smoothly move back to underwater position
+                Vector2 currentPos = Vector2.Lerp(startPos, underwaterPos, fallProgress);
+                transform.position = currentPos;
                 
                 yield return null;
             }
             
-            // Ensure we're back at original position
-            Vector3 finalPos = transform.position;
-            transform.position = new Vector3(finalPos.x, jumpStartY, finalPos.z);
+            // Ensure we're back at underwater position
+            transform.position = underwaterPos;
+            
+            Debug.Log("Cappa returned to underwater position after being scared");
         }
         else
         {
