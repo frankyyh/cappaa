@@ -376,15 +376,83 @@ public class PlayerController : MonoBehaviour
         
         isDead = true;
         
-        // Stop player movement
-        rb.linearVelocity = Vector2.zero;
+        // Stop player movement immediately
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.isKinematic = true; // Disable physics interactions
+        }
         
         // Disable player input
         horizontalInput = 0f;
         jumpPressed = false;
+        canMove = false;
+        
+        // Play death animation
+        if (animator != null)
+        {
+            animator.SetTrigger("Death");
+        }
+        
+        // Pause all other objects in the scene
+        PauseAllOtherObjects();
         
         // Restart the game after delay
         Invoke(nameof(RestartGame), restartDelay);
+    }
+    
+    private void PauseAllOtherObjects()
+    {
+        // Pause all other Animators (except player's)
+        Animator[] allAnimators = FindObjectsOfType<Animator>();
+        foreach (Animator anim in allAnimators)
+        {
+            if (anim != animator && anim != null)
+            {
+                anim.speed = 0f; // Pause animation
+            }
+        }
+        
+        // Disable physics simulation for all other Rigidbody2D components
+        Rigidbody2D[] allRigidbodies = FindObjectsOfType<Rigidbody2D>();
+        foreach (Rigidbody2D rb in allRigidbodies)
+        {
+            if (rb != this.rb && rb != null)
+            {
+                rb.simulated = false; // Disable physics simulation
+            }
+        }
+        
+        // Disable specific movement/attack scripts
+        // Disable Cappa script
+        Cappa[] cappaScripts = FindObjectsOfType<Cappa>();
+        foreach (Cappa cappa in cappaScripts)
+        {
+            if (cappa != null)
+            {
+                cappa.enabled = false;
+            }
+        }
+        
+        // Disable CappaAttacks script
+        CappaAttacks[] cappaAttacks = FindObjectsOfType<CappaAttacks>();
+        foreach (CappaAttacks attacks in cappaAttacks)
+        {
+            if (attacks != null)
+            {
+                attacks.enabled = false;
+            }
+        }
+        
+        // Disable BGMover script
+        BGMover[] bgMovers = FindObjectsOfType<BGMover>();
+        foreach (BGMover mover in bgMovers)
+        {
+            if (mover != null)
+            {
+                mover.enabled = false;
+            }
+        }
     }
     
     private void RestartGame()
